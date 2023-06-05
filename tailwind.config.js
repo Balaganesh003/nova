@@ -9,7 +9,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#3F52E1',
+        accent: '#324871',
+
+        'accent-dark': '#071530',
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('tailwind-scrollbar-hide'), require('tailwind-scrollbar')],
 };
