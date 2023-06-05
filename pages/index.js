@@ -13,8 +13,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main
-        className={`h-[2000px] scrollbar-hide  bg-[#f4f4f4] overflow-x-hidden`}>
+      <main className={`h-[2000px]   bg-[#f4f4f4] overflow-x-hidden `}>
         <NavBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       </main>

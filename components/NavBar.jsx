@@ -9,15 +9,19 @@ import BellLogo from '../assets/svgexport-6.svg';
 import ProfilePhoto from '../assets/profile-photo.jpg';
 
 const NavBar = ({ sidebarOpen, setSidebarOpen }) => {
-  const handleSidebar = () => {
-    setSidebarOpen(!sidebarOpen);
+  const openSideBar = () => {
+    setSidebarOpen(true);
+  };
+
+  const closeSideBar = () => {
+    setSidebarOpen(false);
   };
 
   return (
-    <div className="bg-gradient-to-r from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
+    <div className="bg-gradient-to-r z-50 from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
       <div className="w-full xs:w-full md:max-w-[34.5rem] lg:max-w-full h-14 flex justify-between items-center px-2 md:px-5">
         <div className="flex items-center space-x-4 lg:space-x-11">
-          <div onMouseOver={handleSidebar}>
+          <div onMouseOver={openSideBar}>
             <Image
               src={HamBurgerLogo}
               alt="HamBurgerLogo"
