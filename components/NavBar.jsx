@@ -8,16 +8,23 @@ import BookMarkLogo from '../assets/svgexport-5.svg';
 import BellLogo from '../assets/svgexport-6.svg';
 import ProfilePhoto from '../assets/profile-photo.jpg';
 
-const NavBar = () => {
+const NavBar = ({ sidebarOpen, setSidebarOpen }) => {
+  const handleSidebar = () => {
+    setSidebarOpen(!sidebarOpen);
+  };
+
   return (
-    <div className="bg-gradient-to-r from-accent via-accent-dark to-accent-dark  flex justify-center w-screen">
+    <div className="bg-gradient-to-r from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
       <div className="w-full xs:w-full md:max-w-[34.5rem] lg:max-w-full h-14 flex justify-between items-center px-2 md:px-5">
         <div className="flex items-center space-x-4 lg:space-x-11">
-          <Image
-            src={HamBurgerLogo}
-            alt="HamBurgerLogo"
-            className="cursor-pointer"
-          />
+          <div onMouseOver={handleSidebar}>
+            <Image
+              src={HamBurgerLogo}
+              alt="HamBurgerLogo"
+              className="cursor-pointer"
+            />
+          </div>
+
           <Image src={NovaLogo} alt="NovaLogo" className="cursor-pointer" />
         </div>
         {/* Nav links */}

@@ -1,8 +1,10 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
+import { useState } from 'react';
 
 export default function Home() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   return (
     <div>
       <Head>
@@ -11,9 +13,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className="min-h-[4000px] bg-[#f4f4f4] overflow-x-hidden">
-        <NavBar />
-        <SideBar />
+      <main
+        className={`h-[2000px] scrollbar-hide  bg-[#f4f4f4] overflow-x-hidden`}>
+        <NavBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
       </main>
     </div>
   );
