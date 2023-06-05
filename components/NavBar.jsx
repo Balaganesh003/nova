@@ -8,13 +8,9 @@ import BookMarkLogo from '../assets/svgexport-5.svg';
 import BellLogo from '../assets/svgexport-6.svg';
 import ProfilePhoto from '../assets/profile-photo.jpg';
 
-const NavBar = ({ sidebarOpen, setSidebarOpen }) => {
+const NavBar = ({ setSidebarOpen }) => {
   const openSideBar = () => {
     setSidebarOpen(true);
-  };
-
-  const closeSideBar = () => {
-    setSidebarOpen(false);
   };
 
   return (
