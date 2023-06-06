@@ -7,8 +7,7 @@ import DownArrow from '../assets/svgexport-14.svg';
 import Tiptap from '../components/Tiptap.jsx';
 import parser from 'html-react-parser';
 
-const Feed = () => {
-  const [description, setDescription] = useState('');
+const Feed = ({ openCreatePost }) => {
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
   const [communityDropDown, setCommunityDropDown] = useState(false);
@@ -29,9 +28,10 @@ const Feed = () => {
         </div>
         <div className="w-full">
           <input
+            onFocus={() => openCreatePost()}
             type="text"
             placeholder="Write a post..."
-            className="bg-[#f4f4f4] outline-none px-4 py-2 rounded-lg placeholder:text-black  w-full"
+            className="bg-[#f4f4f4] outline-none px-4 py-2 rounded-lg placeholder:text-black  w-full border border-none  focus:ring-0 focus:border-black "
           />
         </div>
       </div>
@@ -135,8 +135,7 @@ const Feed = () => {
         </div>
       </div>
       {/* Posts */}
-      <Tiptap setDescription={setDescription} />
-      <div>{parser(description)}</div>
+      {/* <div>{parser(description)}</div> */}
     </div>
   );
 };

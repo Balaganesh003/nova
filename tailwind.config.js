@@ -17,6 +17,7 @@ module.exports = {
         'accent-dark': '#071530',
       },
       screens: {
+        xw: '570px',
         xl: '1200px',
       },
       aspectRatio: {
@@ -24,5 +25,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('tailwind-scrollbar-hide'), require('tailwind-scrollbar')],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    require('tailwind-scrollbar'),
+    require('@tailwindcss/forms'),
+  ],
 };

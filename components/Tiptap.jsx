@@ -9,6 +9,9 @@ import { EditorContent, useEditor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import { useCallback } from 'react';
 import HardBreak from '@tiptap/extension-hard-break';
+import EmojiLogo from '../assets/svgexport-17.svg';
+// import EmojiPicker from 'emoji-picker-react';
+import Image from 'next/image';
 
 import {
   FaBold,
@@ -47,64 +50,71 @@ const MenuBar = ({ editor }) => {
   }
 
   return (
-    <div className="flex  bg-[#f4f4f4] rounded-lg space-x-3 p-1 mx-3 mt-3 mb-0">
-      <button
-        onClick={() => editor.chain().focus().toggleBold().run()}
-        disabled={!editor.can().chain().focus().toggleBold().run()}
-        className={
-          editor.isActive('bold')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaBold />
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleItalic().run()}
-        disabled={!editor.can().chain().focus().toggleItalic().run()}
-        className={
-          editor.isActive('italic')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaItalic />
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleUnderline().run()}
-        className={
-          editor.isActive('underline')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaUnderline />
-      </button>
+    <div className="flex items-center justify-between p-1 mx-3 mt-3 rounded-lg bg-[#f4f4f4]">
+      <div className="flex h-8 items-center   space-x-3  mb-0">
+        <button
+          onClick={() => editor.chain().focus().toggleBold().run()}
+          disabled={!editor.can().chain().focus().toggleBold().run()}
+          className={
+            editor.isActive('bold')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaBold />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleItalic().run()}
+          disabled={!editor.can().chain().focus().toggleItalic().run()}
+          className={
+            editor.isActive('italic')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaItalic />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleUnderline().run()}
+          className={
+            editor.isActive('underline')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaUnderline />
+        </button>
 
-      <button
-        onClick={() => editor.chain().focus().toggleBulletList().run()}
-        className={
-          editor.isActive('bulletList')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaListUl />
-      </button>
-      <button
-        onClick={() => editor.chain().focus().toggleOrderedList().run()}
-        className={
-          editor.isActive('orderedList')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaListOl />
-      </button>
-      <button
-        onClick={setLink}
-        className={
-          editor.isActive('link')
-            ? 'bg-gray-300 p-3 rounded-lg'
-            : 'hover:bg-gray-300 p-3 rounded-lg'
-        }>
-        <FaLink />
-      </button>
+        <button
+          onClick={() => editor.chain().focus().toggleBulletList().run()}
+          className={
+            editor.isActive('bulletList')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaListUl />
+        </button>
+        <button
+          onClick={() => editor.chain().focus().toggleOrderedList().run()}
+          className={
+            editor.isActive('orderedList')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaListOl />
+        </button>
+        <button
+          onClick={setLink}
+          className={
+            editor.isActive('link')
+              ? 'bg-gray-300 p-2 rounded-lg'
+              : 'hover:bg-gray-300 p-2 rounded-lg'
+          }>
+          <FaLink />
+        </button>
+      </div>
+      <div className="h-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-300">
+        <button>
+          <Image src={EmojiLogo} alt="emojiicon" />
+        </button>
+      </div>
     </div>
   );
 };
