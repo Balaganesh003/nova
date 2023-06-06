@@ -4,8 +4,11 @@ import ProfilePhoto from '../assets/profile-photo.jpg';
 import { useState } from 'react';
 import EyeLogo from '../assets/svgexport-15.svg';
 import DownArrow from '../assets/svgexport-14.svg';
+import Tiptap from '../components/Tiptap.jsx';
+import parser from 'html-react-parser';
 
 const Feed = () => {
+  const [description, setDescription] = useState('');
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
 
   const [communityDropDown, setCommunityDropDown] = useState(false);
@@ -58,8 +61,8 @@ const Feed = () => {
           }  before:h-1 before:bg-primary before:rounded-lg`}></div>
       </div>
       {/* Sorting */}
-      <div className="w-full flex justify-between px-4 py-4 items-center">
-        <div className="flex space-x-3 items-center">
+      <div className="w-full flex justify-between px-4 lg:px-0 py-4 items-center">
+        <div className="flex gap-3 items-center">
           <div className="md:hidden px-4 py-[0.15rem] text-xs text-white rounded-full bg-primary uppercase font-medium  relative">
             <div
               className="flex items-center gap-2 cursor-pointer  "
@@ -94,7 +97,7 @@ const Feed = () => {
             <p className="text-xs font-medium">Sort posts by</p>
             <div className=" text-xs text-white rounded-full bg-primary relative font-medium uppercase  ">
               <div
-                className="flex items-center gap-2 cursor-pointer px-4 py-[0.15rem]"
+                className="flex items-center gap-2 cursor-pointer px-4  py-[0.15rem]"
                 onClick={() => setSortDropDown(!sortDropDown)}>
                 <p>{selectedSort}</p>
                 <Image src={DownArrow} alt="EyeLogo" className="" />
@@ -132,6 +135,8 @@ const Feed = () => {
         </div>
       </div>
       {/* Posts */}
+      <Tiptap setDescription={setDescription} />
+      <div>{parser(description)}</div>
     </div>
   );
 };
