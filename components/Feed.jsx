@@ -55,7 +55,7 @@ const Feed = () => {
             selectedCommunity == 'All Communities'
               ? 'before:left-0'
               : 'before:right-0'
-          }  before:h-1 before:bg-primary`}></div>
+          }  before:h-1 before:bg-primary before:rounded-lg`}></div>
       </div>
       {/* Sorting */}
       <div className="w-full flex justify-between px-4 py-4 items-center">
