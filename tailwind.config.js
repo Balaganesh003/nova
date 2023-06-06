@@ -16,6 +16,9 @@ module.exports = {
 
         'accent-dark': '#071530',
       },
+      screens: {
+        xl: '1200px',
+      },
       aspectRatio: {
         '4/3': '4 / 3',
       },

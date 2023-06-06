@@ -15,15 +15,15 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`h-[2000px]   bg-[#f4f4f4] overflow-x-hidden `}>
+      <main className={`   bg-[#f4f4f4] overflow-x-hidden `}>
         <NavBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
-        <div className=" mx-auto lg:flex justify-center xs:w-full md:max-w-[34rem]  lg:ml-8 lg:mt-[5.5rem] mt-[3.5rem] md:mt-[4rem]">
-          <div className="grid grid-cols-7   gap-8 ">
-            <div className="col-span-7 lg:col-span-5 w-full outline-2">
+        <div className=" mx-auto lg:flex lg:ml-16 justify-center xs:w-full md:max-w-[34rem] lg:max-w-[100%]  lg:mr-5 lg:mt-[5.5rem] mt-[3.5rem] md:mt-[4rem]">
+          <div className="grid grid-cols-10 lg:w-[93%] xl:w-[75%] 2xl:w-[72.5rem] gap-8 ">
+            <div className="col-span-10 lg:col-span-7  w-full outline-2">
               <Feed />
             </div>
-            <div className="hidden lg:block lg:col-span-2 ">
+            <div className="hidden lg:block lg:col-span-3 ">
               <TrendingPosts />
             </div>
           </div>

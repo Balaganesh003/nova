@@ -38,7 +38,7 @@ const Feed = () => {
           <div
             onClick={() => setSelectedCommunity('All Communities')}
             className={`flex-1 text-center cursor-pointer ${
-              selectedCommunity == 'All Community' && 'font-bold'
+              selectedCommunity == 'All Communities' && 'font-bold'
             }`}>
             All Communities
           </div>
@@ -52,7 +52,7 @@ const Feed = () => {
         </div>
         <div
           className={`h-1 rounded-full w-full bg-[#e8e7e7] relative before:content-[''] before:w-[50%] before:absolute ${
-            selectedCommunity == 'All Community'
+            selectedCommunity == 'All Communities'
               ? 'before:left-0'
               : 'before:right-0'
           }  before:h-1 before:bg-primary`}></div>

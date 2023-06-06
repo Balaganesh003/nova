@@ -43,7 +43,7 @@ const trendingPosts = [
 const TrendingPosts = () => {
   return (
     <div>
-      <h2 className="font-bold text-[0.75rem] text-primary uppercase mb-3">
+      <h2 className="font-bold w-fit text-[0.75rem] text-primary uppercase mb-3">
         Trending Posts
       </h2>
       <div className="flex flex-col space-y-5">
