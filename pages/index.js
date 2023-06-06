@@ -1,7 +1,9 @@
 import Head from 'next/head';
 import NavBar from '../components/NavBar';
 import SideBar from '../components/SideBar';
+import Feed from '../components/Feed';
 import { useState } from 'react';
+import TrendingPosts from '../components/TrendingPosts';
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -16,6 +18,16 @@ export default function Home() {
       <main className={`h-[2000px]   bg-[#f4f4f4] overflow-x-hidden `}>
         <NavBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+        <div className=" mx-auto lg:flex justify-center xs:w-full md:max-w-[34rem]  lg:ml-8 lg:mt-[5.5rem] mt-[3.5rem] md:mt-[4rem]">
+          <div className="grid grid-cols-7   gap-8 ">
+            <div className="col-span-7 lg:col-span-5 w-full outline-2">
+              <Feed />
+            </div>
+            <div className="hidden lg:block lg:col-span-2 ">
+              <TrendingPosts />
+            </div>
+          </div>
+        </div>
       </main>
     </div>
   );

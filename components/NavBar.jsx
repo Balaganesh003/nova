@@ -15,7 +15,7 @@ const NavBar = ({ setSidebarOpen }) => {
 
   return (
     <div className="bg-gradient-to-r z-50 from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
-      <div className="w-full xs:w-full md:max-w-[34.5rem] lg:max-w-full h-14 flex justify-between items-center px-2 md:px-5">
+      <div className="w-full xs:w-full md:max-w-[34.5rem] lg:max-w-full h-14 flex justify-between items-center px-2 md:px-5 lg:mr-4">
         <div className="flex items-center space-x-4 lg:space-x-11">
           <div onMouseOver={openSideBar}>
             <Image
