@@ -5,8 +5,15 @@ import Image from 'next/image';
 import CrossLogo from '../assets/svgexport-13.svg';
 import ProfilePhoto from '../assets/profile-photo.jpg';
 import DownArrow from '../assets/svgexport-21.svg';
+
 const CreatePost = ({ closeCreatePost }) => {
   const [checked, setChecked] = useState(false);
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState({
+    name: 'Balaganesh',
+    imgUrl: ProfilePhoto,
+  });
+  const [community, setCommunity] = useState('All Communities');
   const [description, setDescription] = useState('');
 
   const handelPost = () => {
@@ -16,7 +23,7 @@ const CreatePost = ({ closeCreatePost }) => {
 
   return (
     <div className="w-full h-full ">
-      <div className="bg-black bg-opacity-50 w-screen h-screen fixed top-0 left-0 z-[40]"></div>
+      <div className="bg-black bg-opacity-50 w-screen h-screen fixed top-0 left-0 z-[100]"></div>
 
       <div className=" w-[95%] xw:w-[32rem]  lg:w-[44.25rem] min-h-[33.75rem] bg-white shadow-black/10 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg shadow-xl z-[100] p-8 flex flex-col space-y-[1.2rem] ">
         <div
@@ -51,6 +58,8 @@ const CreatePost = ({ closeCreatePost }) => {
             />
           </div>
         </div>
+        {/* Emoji */}
+
         {/* Title */}
         <div className="pb-1">
           <input

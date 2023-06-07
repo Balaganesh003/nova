@@ -26,7 +26,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={`   bg-[#f4f4f4] overflow-x-hidden `}>
+      <main className={` min-h-[100vh]  bg-[#f4f4f4] overflow-x-hidden `}>
         <NavBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <SideBar sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
         <div className=" mx-auto lg:flex lg:ml-16 justify-center xs:w-full md:max-w-[34rem] lg:max-w-[100%]  lg:mr-5 lg:mt-[5.5rem] mt-[3.5rem] md:mt-[4rem]">

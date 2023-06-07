@@ -4,11 +4,17 @@ import ProfilePhoto from '../assets/profile-photo.jpg';
 import { useState } from 'react';
 import EyeLogo from '../assets/svgexport-15.svg';
 import DownArrow from '../assets/svgexport-14.svg';
-import Tiptap from '../components/Tiptap.jsx';
 import parser from 'html-react-parser';
+import { useSelector } from 'react-redux';
+import MoreLogo from '../assets/svgexport-16.svg';
+import EmojiLogo from '../assets/svgexport-17.svg';
+import CommentLogo from '../assets/svgexport-18.svg';
+import PostCard from './PostCard';
 
 const Feed = ({ openCreatePost }) => {
   const [selectedCommunity, setSelectedCommunity] = useState('All Communities');
+
+  const { posts } = useSelector((state) => state.posts);
 
   const [communityDropDown, setCommunityDropDown] = useState(false);
   const [hidePost, setHidePost] = useState(false);
@@ -18,7 +24,7 @@ const Feed = ({ openCreatePost }) => {
   return (
     <div>
       {/* Input Box */}
-      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white rounded-lg">
+      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white md:rounded-lg">
         <div>
           <Image
             src={ProfilePhoto}
@@ -72,7 +78,7 @@ const Feed = ({ openCreatePost }) => {
             </div>
             {/* DropDown */}
             {communityDropDown && (
-              <div className="absolute top-6 left-0 w-[10.5rem] py-2 bg-white rounded-lg shadow-lg">
+              <div className="absolute z-[100] top-6 left-0 w-[10.5rem] py-2 bg-white rounded-lg shadow-lg">
                 <p
                   onClick={() => [
                     setSelectedCommunity('All Communities'),
@@ -104,7 +110,7 @@ const Feed = ({ openCreatePost }) => {
               </div>
               {/* DropDown */}
               {sortDropDown && (
-                <div className="absolute top-6 left-0 w-[8rem] py-2 bg-white rounded-lg shadow-lg">
+                <div className="absolute top-6 z-[100] left-0 w-[8rem] py-2 bg-white rounded-lg shadow-lg">
                   <p
                     onClick={() => [
                       setSelectedSort('Hot'),
@@ -135,7 +141,13 @@ const Feed = ({ openCreatePost }) => {
         </div>
       </div>
       {/* Posts */}
-      {/* <div>{parser(description)}</div> */}
+
+      <div>
+        {posts.length > 0 &&
+          posts.map((post) => (
+            <PostCard key={post.id} post={post} hidePost={hidePost} />
+          ))}
+      </div>
     </div>
   );
 };

@@ -21,6 +21,7 @@ import {
   FaUnderline,
   FaLink,
 } from 'react-icons/fa';
+import Emoji from './EmojiPacket';
 
 // bold italic underline unorderedList orderedList link emoji
 
@@ -110,10 +111,13 @@ const MenuBar = ({ editor }) => {
           <FaLink />
         </button>
       </div>
-      <div className="h-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-300">
+      <div className="h-full flex items-center justify-center p-2 rounded-lg hover:bg-gray-300 relative">
         <button>
           <Image src={EmojiLogo} alt="emojiicon" />
         </button>
+        <div className="absolute top-0 right-0 w-[10rem] z-[1000]">
+          {/* <Emoji  /> */}
+        </div>
       </div>
     </div>
   );
@@ -137,8 +141,6 @@ const Tiptap = ({ setDescription }) => {
       PlaceHolder.configure({
         placeholder: 'What are your thoughts on...',
       }),
-      ListItem,
-      HardBreak,
       CustomHardBreak,
       StarterKit.configure({
         bulletList: {
