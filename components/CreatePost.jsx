@@ -82,7 +82,7 @@ const CreatePost = ({ closeCreatePost }) => {
       dispatch(postsActions.addPost(postObj));
       toast.success('Post created successfully');
       closeCreatePost();
-    }, 200);
+    }, 500);
   };
 
   useEffect(() => {
