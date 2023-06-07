@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { use } from 'react';
 import Image from 'next/image';
 import ProfilePhoto from '../assets/profile-photo.jpg';
 import { useState } from 'react';
 import EyeLogo from '../assets/svgexport-15.svg';
 import DownArrow from '../assets/svgexport-14.svg';
-import parser from 'html-react-parser';
 import { useSelector } from 'react-redux';
-import MoreLogo from '../assets/svgexport-16.svg';
-import EmojiLogo from '../assets/svgexport-17.svg';
-import CommentLogo from '../assets/svgexport-18.svg';
+import { useEffect } from 'react';
 import PostCard from './PostCard';
 
 const Feed = ({ openCreatePost }) => {
@@ -20,6 +17,8 @@ const Feed = ({ openCreatePost }) => {
   const [hidePost, setHidePost] = useState(false);
   const [selectedSort, setSelectedSort] = useState('Hot');
   const [sortDropDown, setSortDropDown] = useState(false);
+
+  useEffect(() => {}, [posts]);
 
   return (
     <div>

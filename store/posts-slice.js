@@ -7,7 +7,7 @@ const initialPostsState = {
       title: 'My Post',
       author: {
         name: 'Balaganesh',
-        imgUrl: 'https://xsgames.co/randomusers/avatar.php?g=pixel',
+        imgUrl: 'https://xsgames.co/randomusers/assets/avatars/pixel/41.jpg',
       },
       community: '🚀 Startup Hub',
       description:
@@ -25,6 +25,7 @@ const initialPostsState = {
         },
       ],
       comments: ['Thanks for sharing this!', 'this is awesome!'],
+      createAt: '2023-06-01T12:00:00.000Z',
     },
   ],
 };
@@ -34,7 +35,7 @@ const postsSlice = createSlice({
   initialState: initialPostsState,
   reducers: {
     addPost(state, action) {
-      state.projects.push(action.payload);
+      state.posts.unshift(action.payload);
     },
   },
 });

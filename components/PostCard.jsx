@@ -4,6 +4,7 @@ import MoreLogo from '../assets/svgexport-16.svg';
 import EmojiLogo from '../assets/svgexport-17.svg';
 import CommentLogo from '../assets/svgexport-18.svg';
 import parser from 'html-react-parser';
+import TimeAgo from 'react-timeago';
 
 const PostCard = ({ post, hidePost }) => {
   return (
@@ -35,7 +36,7 @@ const PostCard = ({ post, hidePost }) => {
                   <p className="flex text-gray-600">Building Hirable</p>
                   <div className="font-extrabold text-gray-600">.</div>
                   <p className="flex text-gray-600">
-                    <span>1</span> <span>h</span>
+                    <TimeAgo date={post.createAt} />
                   </p>
                 </div>
               </div>
