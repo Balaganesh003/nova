@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { use } from 'react';
 import Tiptap from './Tiptap';
 import { useState } from 'react';
