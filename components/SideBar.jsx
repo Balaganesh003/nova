@@ -130,7 +130,7 @@ const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
     <div>
       <div
         onClick={closeSideBar}
-        className={`w-full opacity-30 z-[60] h-screen  ${
+        className={`w-full opacity-30 z-[100] h-screen  ${
           sidebarOpen ? 'block' : 'hidden'
         } bg-black fixed top-0 left-0`}></div>
       <div
