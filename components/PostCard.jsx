@@ -5,13 +5,14 @@ import EmojiLogo from '../assets/svgexport-17.svg';
 import CommentLogo from '../assets/svgexport-18.svg';
 import parser from 'html-react-parser';
 import TimeAgo from 'react-timeago';
+import NoCommentLogo from '../assets/svgexport-19.svg';
 
 const PostCard = ({ post, hidePost }) => {
   return (
     <div
       key={post.id}
       className=" max-h-[445px] overflow-hidden relative md:rounded-lg  w-full cursor-pointer mb-10 bg-white ">
-      <div className={` p-8  ${hidePost && 'hidden'} `}>
+      <div className={` p-8 `}>
         <div className="flex items-center justify-between  pb-4">
           <div className="flex items-center gap-4 ">
             <Image
@@ -76,7 +77,11 @@ const PostCard = ({ post, hidePost }) => {
         </div>
 
         <div className="flex gap-[5px] items-center">
-          <Image src={CommentLogo} alt="CommentLogo" className="" />
+          <Image
+            src={post?.comments?.length === 0 ? NoCommentLogo : CommentLogo}
+            alt="CommentLogo"
+            className=""
+          />
           <span className="text-gray-500 font-medium text-[1.15rem]">
             {post?.comments?.length}
           </span>

@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { use } from 'react';
 import Tiptap from './Tiptap';
 import { useState } from 'react';
+import { useEffect } from 'react';
+import { createRef } from 'react';
 import Image from 'next/image';
 import CrossLogo from '../assets/svgexport-13.svg';
 import DownArrow from '../assets/svgexport-21.svg';
@@ -35,6 +37,7 @@ const communityList = [
 
 const CreatePost = ({ closeCreatePost }) => {
   const dispatch = useDispatch();
+  const titleRef = createRef();
   const [checked, setChecked] = useState(false);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState(authorList[0]);
@@ -59,8 +62,8 @@ const CreatePost = ({ closeCreatePost }) => {
         count: 1,
       },
     ],
-    comments: ['Thanks for sharing this!', 'this is awesome!'],
-    createAt: new Date().toLocaleString(),
+    comments: [],
+    createAt: createAt,
   };
 
   const handelPost = () => {
@@ -80,6 +83,10 @@ const CreatePost = ({ closeCreatePost }) => {
       closeCreatePost();
     }, 200);
   };
+
+  useEffect(() => {
+    titleRef.current.focus();
+  }, []);
 
   return (
     <div className="w-full h-full ">
@@ -182,6 +189,7 @@ const CreatePost = ({ closeCreatePost }) => {
         {/* Title */}
         <div className="pb-1">
           <input
+            ref={titleRef}
             type="text"
             onChange={(e) => setTitle(e.target.value)}
             value={title}
