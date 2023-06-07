@@ -64,11 +64,10 @@ const CreatePost = ({ closeCreatePost }) => {
       },
     ],
     comments: [],
-    createAt: createAt,
+    createAt: new Date().toLocaleString(),
   };
 
   const handelPost = () => {
-    setCreateAt(new Date().toLocaleString());
     setTimeout(() => {
       if (
         title === '' ||
@@ -82,7 +81,7 @@ const CreatePost = ({ closeCreatePost }) => {
       dispatch(postsActions.addPost(postObj));
       toast.success('Post created successfully');
       closeCreatePost();
-    }, 500);
+    }, 100);
   };
 
   useEffect(() => {
