@@ -9,6 +9,7 @@ import DegreeLogo from '../assets/svgexport-25.svg';
 import OffersAndAsk from '../components/OffersAndAsk';
 import { useState } from 'react';
 import Contact from '../components/Contact';
+import SkillsAndInterest from '../components/SkillsAndInterest';
 
 const communityList = [
   '🚀 Startup Hub',
@@ -169,6 +170,7 @@ const Profile = () => {
               />
 
               {/* Skills */}
+              <SkillsAndInterest title="Skills" />
 
               {/* Interests */}
 

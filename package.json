@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.5",
-    "@tailwindcss/forms": "^0.5.3",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-hard-break": "^2.0.3",
     "@tiptap/extension-link": "^2.0.3",
@@ -29,6 +28,7 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.9.0",
     "react-redux": "^8.0.7",
+    "react-select": "^5.7.3",
     "react-timeago": "^7.1.0",
     "redux": "^4.2.1",
     "sass": "^1.62.1",

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { use } from 'react';
+import React from 'react';
 import Tiptap from './Tiptap';
 import { useState } from 'react';
 import { useEffect } from 'react';
@@ -42,7 +42,6 @@ const CreatePost = ({ closeCreatePost }) => {
   const [checked, setChecked] = useState(false);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState(authorList[0]);
-  const [createAt, setCreateAt] = useState('');
   const [community, setCommunity] = useState('Select a community');
   const [description, setDescription] = useState('');
 
@@ -209,7 +208,7 @@ const CreatePost = ({ closeCreatePost }) => {
               id="link-checkbox"
               type="checkbox"
               value={checked}
-              className="w-5 h-5 text-primary bg-white border-gray-500 border-2 rounded focus:ring-0 focus:ring-offset-0 "
+              className=""
             />
             <label
               for="link-checkbox"
