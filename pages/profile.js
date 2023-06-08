@@ -14,7 +14,7 @@ const Profile = () => {
       {/* Content for the left column */}
       <div className="md:w-[400px] h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
         <div className="w-full h-full">
-          <div className=" rounded-lg m-2 mb-3 shadow-lg">
+          <div className=" rounded-lg mx-2 mb-2 mb-3 shadow-equal">
             {/* Profile Banner */}
             <div className="w-full  h-48 rounded-t-lg">
               <div className="rounded-t-lg relative">
@@ -85,9 +85,22 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className=" rounded-lg m-2 mb-12  shadow-lg">
+          <div className=" rounded-lg m-2 mb-12 shadow-equal  px-8 pb-10 flex flex-col gap-5  divide-y-[1px]">
             {/* Profile Banner */}
-            <OffersAndAsk />
+            <OffersAndAsk
+              title="Offers"
+              question="How can you help others?"
+              initialText="I can help with"
+              label="I can help with:"
+              placeholderText="Ex: Resume review, Interview prep, etc."
+            />
+            <OffersAndAsk
+              title="Offers"
+              question="How can you help others?"
+              initialText="I can help with"
+              label="I can help with:"
+              placeholderText="Ex: Resume review, Interview prep, etc."
+            />
           </div>
         </div>
       </div>

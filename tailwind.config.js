@@ -23,6 +23,9 @@ module.exports = {
       aspectRatio: {
         '4/3': '4 / 3',
       },
+      boxShadow: {
+        equal: '0 2px 8px rgba(0,0,0,.12)',
+      },
     },
   },
   plugins: [
