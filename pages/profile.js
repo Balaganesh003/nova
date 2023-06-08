@@ -7,14 +7,33 @@ import OtherLogo from '../assets/svgexport-23.svg';
 import BatchLogo from '../assets/svgexport-24.svg';
 import DegreeLogo from '../assets/svgexport-25.svg';
 import OffersAndAsk from '../components/OffersAndAsk';
+import { useState } from 'react';
+import Contact from '../components/Contact';
+
+const communityList = [
+  '🚀 Startup Hub',
+  '🌳 Community Building',
+  '💱 Crypto Blockchain',
+  '🤝 HR & Recruiting',
+  '🦋 Creator Space',
+  '📈 Marketing & Sales',
+  '🎨 Design',
+  '💵 Enterpreneurship',
+  '💻 Software Engineering',
+  '📝 General Advice',
+  '🪜 Ladder Community',
+];
 
 const Profile = () => {
+  const [showProfile, setShowProfile] = useState(true);
+  const [showActivity, setShowActivity] = useState(false);
+
   return (
     <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide">
       {/* Content for the left column */}
       <div className="md:w-[400px] h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
         <div className="w-full h-full">
-          <div className=" rounded-lg mx-2 mb-2 mb-3 shadow-equal">
+          <div className=" rounded-lg mx-2  mb-3 shadow-equal">
             {/* Profile Banner */}
             <div className="w-full  h-48 rounded-t-lg">
               <div className="rounded-t-lg relative">
@@ -104,16 +123,79 @@ const Profile = () => {
           </div>
         </div>
       </div>
-      <div className="md:max-w-[600px] md:mr-10 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
-        {/* Content for the right column */}
-        <div className="w-full  flex flex-wrap h-[200rem] bg-gradient-to-b from-black to-blue-200">
-          <h1 className="text-white text-wrap">
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. Lorem Ipsum has been the industrys standard dummy text
-            ever since the 1500s, when an unknown printer took a galley of type
-            and scrambled it to make a type specimen book. It has survived not
-            only five centuries, but also the leap into electronic
-          </h1>
+      {/* Content for the right column */}
+      <div className="md:max-w-[600px] h-full md:mr-10 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
+        <div className="h-full w-full ">
+          <div className=" rounded-lg mx-2 mb-12 shadow-equal">
+            {/* Slidebar */}
+            <div className="w-full mb-3">
+              <div className="flex w-fit py-3 px-4 transition-all duration-300">
+                <div
+                  onClick={() => [setShowProfile(true), setShowActivity(false)]}
+                  className={`flex-1 text-center px-9 cursor-pointer ${
+                    showProfile && 'font-bold'
+                  }`}>
+                  Profile
+                </div>
+                <div
+                  onClick={() => [setShowProfile(false), setShowActivity(true)]}
+                  className={`flex-1 text-center px-4 cursor-pointer ${
+                    showActivity && 'font-bold'
+                  }`}>
+                  Activity
+                </div>
+              </div>
+              <div
+                className={`h-1 rounded-full w-full bg-[#e8e7e7] relative before:content-[''] before:w-[110px] before:absolute ${
+                  showProfile ? 'before:left-[28px]' : 'before:left-[126px]'
+                }  before:h-1 before:bg-primary before:rounded-lg`}></div>
+            </div>
+            <div className="px-8 divide-y-[1px] flex flex-col gap-4">
+              {/* About */}
+              <OffersAndAsk
+                title="About"
+                question="Tell us about yourself"
+                initialText="I am a"
+                label="About me:"
+                placeholderText="Ex: Product Manager, Software Engineer, etc."
+              />
+              {/* Experience */}
+              <OffersAndAsk
+                title="Experience"
+                question="What have you done?"
+                initialText="I have worked at"
+                label="Experience:"
+                placeholderText="Ex: Google, Facebook, etc."
+              />
+
+              {/* Skills */}
+
+              {/* Interests */}
+
+              {/* Communities */}
+              <div className="pt-5">
+                <p className="text-2xl font-medium">Communities</p>
+                <div className="my-4 flex flex-wrap gap-2">
+                  {communityList.map((community, i) => (
+                    <p
+                      key={i * 77}
+                      className="text-base leading-[1.65rem] hover:bg-[#f4f4f4] transition-all duration-300 cursor-pointer font-medium w-fit px-5 py-1 outline outline-[1px] outline-gray-300 rounded-full text-gray-500">
+                      {community}
+                    </p>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact */}
+              <Contact
+                title="Contact"
+                question="How can we get in contact?"
+                initialText="You can reach me at"
+                label="Contact:"
+                placeholderText="Ex: Email, LinkedIn, etc."
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>

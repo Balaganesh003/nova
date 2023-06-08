@@ -10,7 +10,6 @@ const OffersAndAsk = ({
   question,
   label,
   initialText,
-  modalTitile,
   placeholderText,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
