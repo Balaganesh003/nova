@@ -7,8 +7,31 @@ import MessageLogo from '../assets/svgexport-4.svg';
 import BookMarkLogo from '../assets/svgexport-5.svg';
 import BellLogo from '../assets/svgexport-6.svg';
 import ProfilePhoto from '../assets/profile-photo.jpg';
+import Link from 'next/link';
+import { useState } from 'react';
+
+const NavLinks = [
+  {
+    title: 'My Profile',
+    link: '/profile',
+  },
+  {
+    title: 'Settings',
+    link: '/settings',
+  },
+  {
+    title: 'Help',
+    link: '/help',
+  },
+  {
+    title: 'Log Out',
+    link: '/logout',
+  },
+];
 
 const NavBar = ({ setSidebarOpen }) => {
+  const [isWindowOpen, setIsWindowOpen] = useState(false);
+
   const openSideBar = () => {
     setSidebarOpen(true);
   };
@@ -24,13 +47,14 @@ const NavBar = ({ setSidebarOpen }) => {
               className="cursor-pointer"
             />
           </div>
-
-          <Image src={NovaLogo} alt="NovaLogo" className="cursor-pointer" />
+          <Link href="/">
+            <Image src={NovaLogo} alt="NovaLogo" className="cursor-pointer" />
+          </Link>
         </div>
         {/* Nav links */}
         <div className="flex items-center space-x-4 lg:pr-7 ">
           <div className="flex items-center space-x-2 sm:space-x-4 ">
-            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
+            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer relative">
               <Image src={SearchLogo} alt="SearchLogo" className="lg:hidden " />
             </div>
             <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
@@ -48,10 +72,25 @@ const NavBar = ({ setSidebarOpen }) => {
             </div>
           </div>
           <Image
+            onClick={() => setIsWindowOpen(!isWindowOpen)}
             src={ProfilePhoto}
             alt="ProfilePhoto"
             className="rounded-full h-8 w-8 cursor-pointer hidden lg:block"
           />
+          {isWindowOpen && (
+            <div className="absolute w-[10rem] py-2  bg-white top-16 right-16 rounded-lg shadow-md">
+              {NavLinks.map((link, index) => (
+                <Link
+                  onClick={() => setIsWindowOpen(false)}
+                  key={index}
+                  href={link.link}>
+                  <p className="block leading-5 text-md text-black px-4 py-2  hover:bg-[#f4f4f4]">
+                    {link.title}
+                  </p>
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>
