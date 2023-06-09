@@ -131,7 +131,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className=" rounded-lg m-2 mb-12 shadow-equal  px-8 pb-10 flex flex-col gap-5  divide-y-[1px]">
+          <div className=" rounded-lg m-2 mb-12 shadow-equal  px-8 pb-8 flex flex-col gap-8  divide-y-[1px]">
             {/* Profile Banner */}
             <OffersAndAsk
               title="Offers"
@@ -141,11 +141,11 @@ const Profile = () => {
               placeholderText="Ex: Resume review, Interview prep, etc."
             />
             <OffersAndAsk
-              title="Offers"
-              question="How can you help others?"
-              initialText="I can help with"
-              label="I can help with:"
-              placeholderText="Ex: Resume review, Interview prep, etc."
+              title="Asks"
+              question="What do you need help with?"
+              initialText="I need help with"
+              label="I need help with"
+              placeholderText="Ex: Choosing projects for my portfolio, etc."
             />
           </div>
         </div>
@@ -177,7 +177,7 @@ const Profile = () => {
                   showProfile ? 'before:left-[28px]' : 'before:left-[126px]'
                 }  before:h-1 before:bg-primary before:rounded-lg`}></div>
             </div>
-            <div className="px-8 divide-y-[1px] flex flex-col gap-4">
+            <div className="px-8 divide-y-[1px] flex flex-col gap-8">
               {/* About */}
               <OffersAndAsk
                 title="About"
@@ -210,9 +210,9 @@ const Profile = () => {
               />
 
               {/* Communities */}
-              <div className="pt-5">
+              <div className="pt-8">
                 <p className="text-2xl font-medium">Communities</p>
-                <div className="my-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {communityList.map((community, i) => (
                     <p
                       key={i * 77}

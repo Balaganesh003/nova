@@ -28,7 +28,7 @@ const OffersAndAsk = ({
 
   return (
     <div className="w-full  h-full   ">
-      <div className="flex justiify-between pt-5 pb-3 items-center w-full h-full ">
+      <div className="flex justiify-between pt-8 pb-3 items-center w-full h-full ">
         <h1 className="text-xl font-bold  w-full capitalize">{title}</h1>
         {finalContent.length > 0 && (
           <Image
@@ -39,7 +39,7 @@ const OffersAndAsk = ({
           />
         )}
       </div>
-      <div className="pb-4">
+      <div className="">
         {finalContent.length > 0 ? (
           <div className="text-gray-800 w-full h-full ">
             <p className="mr-1 font-semibold text-black break-word">

@@ -77,7 +77,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
           />
         )}
       </div>
-      <div className="pb-4">
+      <div className="">
         {finalSelected.length > 0 ? (
           <div className="text-gray-800 w-full h-full flex gap-2 flex-wrap">
             {finalSelected.map((item, index) => (
