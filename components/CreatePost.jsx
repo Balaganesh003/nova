@@ -88,7 +88,7 @@ const CreatePost = ({ closeCreatePost }) => {
   }, []);
 
   return (
-    <div className="bg-black bg-opacity-50 w-screen h-full min-h-screen fixed top-0 left-0 z-[100] flex justify-center items-start overflow-y-scroll py-5">
+    <div className="bg-black bg-opacity-50 w-screen h-full min-h-screen fixed top-0 left-0 z-[100] flex justify-center items-start overflow-y-auto py-5">
       <Toaster />
       <div className=" w-full  xw:w-[32rem] m-2  lg:w-[44.25rem] min-h-[33.75rem] bg-white shadow-black/10  rounded-xl shadow-xl z-[100] p-5 xw:p-8 relative">
         <div className="flex flex-col  space-y-[1.25rem]">
