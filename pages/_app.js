@@ -7,8 +7,7 @@ import { useEffect, useState } from 'react';
 import store from '../store';
 import { useRouter } from 'next/router';
 
-function App({ Component, pageProps }) {
-  const router = useRouter();
+function MyApp({ Component, pageProps }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [isProfilePage, setIsProfilePage] = useState(false);
 

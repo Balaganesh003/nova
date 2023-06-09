@@ -78,16 +78,13 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
           />
         )}
       </div>
-      <div className="">
-        {finalSelected.length > 0 ? (
-          <div className="text-gray-800 w-full h-full flex gap-2 flex-wrap">
-            {finalSelected.map((item, index) => (
-              <p
-                key={index * 88}
-                className=" w-fit uppercase text-black  bg-[#eee] px-4 font-bold py-[3px] text-[12px] leading-4 rounded-full">
-                {item.label}
-              </p>
-            ))}
+      <div className="pb-4">
+        {finalContent.length > 0 ? (
+          <div className="text-gray-800 w-full h-full ">
+            <p className="mr-1 font-semibold text-black break-word">
+              {initialText}
+            </p>
+            {finalContent}
           </div>
         ) : (
           <p
