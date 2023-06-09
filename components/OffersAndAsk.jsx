@@ -17,6 +17,7 @@ const OffersAndAsk = ({
   const [finalContent, setFinalContent] = useState('');
 
   const handleModal = () => {
+    document.body.classList.toggle('overflow-hidden');
     setIsModalOpen(!isModalOpen);
   };
 
@@ -65,10 +66,9 @@ const OffersAndAsk = ({
       </div>
 
       {isModalOpen && (
-        <>
-          <div className="h-screen w-full overflow-x-hidden bg-black/20 absolute top-0 left-0"></div>
-          <div className="bg-white w-[512px] lg:h-[300px] h-[280px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg py-6 px-8">
-            <h1 className="text-[1.6rem] font-bold pb-5">
+        <div className="fixed h-screen w-screen top-0 left-0 bg-black/30 z-[200] flex justify-center items-center">
+          <div className="bg-white w-[512px] lg:h-[300px] h-[280px]   rounded-lg py-6 px-8">
+            <h1 className="text-[1.6rem] font-bold pb-5 ">
               {finalContent.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>
             <div className="lg:mb-7 mb-5">
@@ -96,7 +96,7 @@ const OffersAndAsk = ({
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

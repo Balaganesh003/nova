@@ -56,24 +56,24 @@ const Profile = () => {
   const [showActivity, setShowActivity] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide">
+    <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide ">
       {/* Content for the left column */}
       <div className="md:w-[400px]  h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
-        <div className="w-full h-full">
+        <div className="w-full h-full ">
           <div className=" md:rounded-lg md:mx-2  mb-3 shadow-equal">
             {/* Profile Banner */}
-            <div className="w-full  h-48 md:rounded-t-lg">
-              <div className="md:rounded-t-lg relative">
+            <div className="w-full h-full  md:rounded-t-lg relative">
+              <div className="md:rounded-t-lg ">
                 <Image
                   src={ProfileBanner}
                   alt="Profile Banner"
                   className="md:rounded-t-lg object-cover w-full h-full"
                 />
-                <div className="w-[150px] h-[150px] bg-white rounded-full absolute md:top-[18px] top-1/2 translate-y-[-5%] md:left-8 left-4 shadow-lg">
+                <div className="w-[150px] h-[150px] bg-white rounded-full absolute bottom-0 translate-y-1/2 left-5  shadow-lg">
                   <Image
                     src={ProfilePhoto}
                     alt="Profile Photo"
-                    className="w-full h-full rounded-full p-1"
+                    className="w-full h-full rounded-full p-1 "
                   />
                 </div>
                 <div className="absolute top-[7.7rem] right-8 rounded-full hover:bg-[#eee] cursor-pointer  duration-200 transition-all">
@@ -86,9 +86,9 @@ const Profile = () => {
               </div>
             </div>
             {/* Profile Details */}
-            <div className="md:w-full max-w-[350px] px-4 pt-20 md:px-8 md:py-2 ">
+            <div className="md:w-full max-w-[350px] px-4 pt-[6.5rem] md:px-8  ">
               <div className="flex justify-between gap-5 items-center">
-                <p className="flex text-2xl font-bold md:font-medium">
+                <p className="flex text-2xl font-bold ">
                   Innovative Chnagemaker
                 </p>
                 <p className="flex text-xl  text-gray-500">

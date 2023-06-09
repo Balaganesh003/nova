@@ -21,6 +21,7 @@ const Contact = ({ title, question }) => {
   const [finalLinks, setFinalLinks] = useState(['', '', '', '', '']);
 
   const handleModal = () => {
+    document.body.classList.toggle('overflow-hidden');
     setIsModalOpen(!isModalOpen);
   };
 

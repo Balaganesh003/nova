@@ -7,10 +7,12 @@ export default function Home() {
   const [createPostOpen, setCreatePostOpen] = useState(false);
 
   const openCreatePost = () => {
+    document.body.style.overflow = 'hidden';
     setCreatePostOpen(true);
   };
 
   const closeCreatePost = () => {
+    document.body.style.overflow = 'auto';
     setCreatePostOpen(false);
   };
   return (
@@ -25,9 +27,8 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div>
-        {createPostOpen && <CreatePost closeCreatePost={closeCreatePost} />}
-      </div>
+
+      {createPostOpen && <CreatePost closeCreatePost={closeCreatePost} />}
     </main>
   );
 }

@@ -52,6 +52,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
   const [selected, setSelected] = useState(finalSelected);
 
   const handleModal = () => {
+    document.body.classList.toggle('overflow-hidden');
     setIsModalOpen(!isModalOpen);
   };
 
@@ -105,9 +106,8 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
       </div>
 
       {isModalOpen && (
-        <>
-          <div className="h-screen w-full overflow-x-hidden bg-black/20 absolute top-0 left-0"></div>
-          <div className="bg-white w-[512px] min-h-[250px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg py-6 px-8">
+        <div className="h-screen w-screen overflow-x-hidden bg-black/30 fixed top-0 left-0 flex justify-center items-center">
+          <div className="bg-white w-[512px] min-h-[250px]  rounded-lg py-6 px-8">
             <h1 className="text-[1.6rem] font-bold pb-5">
               {finalSelected.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>
@@ -141,7 +141,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
               </button>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );
