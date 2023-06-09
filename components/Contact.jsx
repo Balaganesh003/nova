@@ -21,6 +21,7 @@ const Contact = ({ title, question }) => {
   const [finalLinks, setFinalLinks] = useState(['', '', '', '', '']);
 
   const handleModal = () => {
+    document.body.classList.toggle('overflow-hidden');
     setIsModalOpen(!isModalOpen);
   };
 
@@ -155,7 +156,7 @@ const Contact = ({ title, question }) => {
                     value={twitterLink}
                     onChange={(e) => setTwitterLink(e.target.value)}
                     placeholder={'Twitter'}
-                    className="mt-1  resize-none outline-none  rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 focus:border-black "
+                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
                   />
                 </div>
                 <div className="w-[50%]">
@@ -167,7 +168,7 @@ const Contact = ({ title, question }) => {
                     value={linkedinLink}
                     onChange={(e) => setLinkedinLink(e.target.value)}
                     placeholder={'Linkedin'}
-                    className="mt-1  resize-none outline-none  rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 focus:border-black "
+                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
                   />
                 </div>
               </div>
@@ -181,7 +182,7 @@ const Contact = ({ title, question }) => {
                     value={instagramLink}
                     onChange={(e) => setInstagramLink(e.target.value)}
                     placeholder={'Instagram'}
-                    className="mt-1  resize-none outline-none  rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 focus:border-black "
+                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
                   />
                 </div>
                 <div className="w-[50%]">
@@ -193,7 +194,7 @@ const Contact = ({ title, question }) => {
                     value={portfolioLink}
                     onChange={(e) => setPortfolioLink(e.target.value)}
                     placeholder={'Website URL'}
-                    className="mt-1  resize-none outline-none  rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 focus:border-black "
+                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
                   />
                 </div>
               </div>

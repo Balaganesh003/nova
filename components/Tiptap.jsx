@@ -10,7 +10,6 @@ import StarterKit from '@tiptap/starter-kit';
 import { useCallback } from 'react';
 import HardBreak from '@tiptap/extension-hard-break';
 import EmojiLogo from '../assets/svgexport-17.svg';
-// import EmojiPicker from 'emoji-picker-react';
 import Image from 'next/image';
 
 import {
@@ -21,7 +20,6 @@ import {
   FaUnderline,
   FaLink,
 } from 'react-icons/fa';
-import Emoji from './EmojiPacket';
 
 // bold italic underline unorderedList orderedList link emoji
 
@@ -115,9 +113,6 @@ const MenuBar = ({ editor }) => {
         <button>
           <Image src={EmojiLogo} alt="emojiicon" />
         </button>
-        <div className="absolute top-0 right-0 w-[10rem] z-[1000]">
-          {/* <Emoji  /> */}
-        </div>
       </div>
     </div>
   );

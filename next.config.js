@@ -1,9 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true,
   images: {
-    domains: ['xsgames.co'],
+    domains: [
+      'images.unsplash.com',
+      'firebasestorage.googleapis.com',
+      'xsgames.co',
+    ],
   },
 };
 

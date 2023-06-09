@@ -25,29 +25,55 @@ const communityList = [
   '🪜 Ladder Community',
 ];
 
+const interestsOptions = [
+  { value: 'gaming', label: 'Gaming' },
+  { value: 'reading', label: 'Reading' },
+  { value: 'music', label: 'Music' },
+  { value: 'travel', label: 'Travel' },
+  { value: 'photography', label: 'Photography' },
+  { value: 'cooking', label: 'Cooking' },
+  { value: 'sports', label: 'Sports' },
+  { value: 'fitness', label: 'Fitness' },
+  { value: 'art', label: 'Art' },
+  { value: 'movies', label: 'Movies' },
+];
+
+const skillsOptions = [
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'python', label: 'Python' },
+  { value: 'java', label: 'Java' },
+  { value: 'csharp', label: 'C#' },
+  { value: 'html', label: 'HTML' },
+  { value: 'css', label: 'CSS' },
+  { value: 'sql', label: 'SQL' },
+  { value: 'git', label: 'Git' },
+  { value: 'agile', label: 'Agile' },
+  { value: 'testing', label: 'Testing' },
+];
+
 const Profile = () => {
   const [showProfile, setShowProfile] = useState(true);
   const [showActivity, setShowActivity] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide">
+    <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide ">
       {/* Content for the left column */}
-      <div className="md:w-[400px] h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
-        <div className="w-full h-full">
-          <div className=" rounded-lg mx-2  mb-3 shadow-equal">
+      <div className="md:w-[400px]  h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
+        <div className="w-full h-full ">
+          <div className=" md:rounded-lg md:mx-2  mb-3 shadow-equal">
             {/* Profile Banner */}
-            <div className="w-full  h-48 rounded-t-lg">
-              <div className="rounded-t-lg relative">
+            <div className="w-full h-full  md:rounded-t-lg relative">
+              <div className="md:rounded-t-lg ">
                 <Image
                   src={ProfileBanner}
                   alt="Profile Banner"
-                  className="rounded-t-lg"
+                  className="md:rounded-t-lg object-cover w-full h-full"
                 />
-                <div className="w-[150px] h-[150px] bg-white rounded-full absolute top-[18px] left-8 shadow-lg">
+                <div className="w-[150px] h-[150px] bg-white rounded-full absolute bottom-0 translate-y-1/2 left-5  shadow-lg">
                   <Image
                     src={ProfilePhoto}
                     alt="Profile Photo"
-                    className="w-full h-full rounded-full p-1"
+                    className="w-full h-full rounded-full p-1 "
                   />
                 </div>
                 <div className="absolute top-[7.7rem] right-8 rounded-full hover:bg-[#eee] cursor-pointer  duration-200 transition-all">
@@ -60,12 +86,12 @@ const Profile = () => {
               </div>
             </div>
             {/* Profile Details */}
-            <div className="w-full px-8 py-2 ">
+            <div className="md:w-full max-w-[350px] px-4 pt-[6.5rem] md:px-8  ">
               <div className="flex justify-between gap-5 items-center">
-                <p className="flex text-2xl font-medium">
+                <p className="flex text-2xl font-bold ">
                   Innovative Chnagemaker
                 </p>
-                <p className="flex text-xl text-gray-500">
+                <p className="flex text-xl  text-gray-500">
                   <span>(</span>
                   <span>He/Him</span>
                   <span>)</span>
@@ -75,7 +101,7 @@ const Profile = () => {
               <p className="text-md pt-1 text-gray-500">@chnagemaker</p>
             </div>
             {/* Profile Stats */}
-            <div className="w-full px-8 py-7 ">
+            <div className="w-full px-4 md:px-8 py-7 ">
               <div className="flex  gap-[16px] items-center">
                 <p className="flex items-center text-gray-500">
                   <span className="font-medium text-black pr-1">1</span>post
@@ -90,7 +116,7 @@ const Profile = () => {
               </div>
             </div>
             {/* Profile Bio */}
-            <div className="w-full flex flex-col pt-3 gap-3 px-8 pb-8 ">
+            <div className="w-full flex flex-col pt-3 gap-3 px-4 md:px-8 pb-8 ">
               <div className="flex items-center ">
                 <Image src={OtherLogo} alt="Other Logo" />
                 <p className="pl-3 text-black">Other</p>
@@ -105,7 +131,7 @@ const Profile = () => {
               </div>
             </div>
           </div>
-          <div className=" rounded-lg m-2 mb-12 shadow-equal  px-8 pb-10 flex flex-col gap-5  divide-y-[1px]">
+          <div className=" md:rounded-lg md:m-2 md:mb-12 shadow-equal px-4 md:px-8 pb-8 flex flex-col gap-8  divide-y-[1px]">
             {/* Profile Banner */}
             <OffersAndAsk
               title="Offers"
@@ -115,11 +141,11 @@ const Profile = () => {
               placeholderText="Ex: Resume review, Interview prep, etc."
             />
             <OffersAndAsk
-              title="Offers"
-              question="How can you help others?"
-              initialText="I can help with"
-              label="I can help with:"
-              placeholderText="Ex: Resume review, Interview prep, etc."
+              title="Asks"
+              question="What do you need help with?"
+              initialText="I need help with"
+              label="I need help with"
+              placeholderText="Ex: Choosing projects for my portfolio, etc."
             />
           </div>
         </div>
@@ -127,7 +153,7 @@ const Profile = () => {
       {/* Content for the right column */}
       <div className="md:max-w-[600px] h-full md:mr-10 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
         <div className="h-full w-full ">
-          <div className=" rounded-lg mx-2 mb-12 shadow-equal">
+          <div className=" md:rounded-lg md:mx-2 md:mb-12 shadow-equal">
             {/* Slidebar */}
             <div className="w-full mb-3">
               <div className="flex w-fit py-3 px-4 transition-all duration-300">
@@ -151,7 +177,7 @@ const Profile = () => {
                   showProfile ? 'before:left-[28px]' : 'before:left-[126px]'
                 }  before:h-1 before:bg-primary before:rounded-lg`}></div>
             </div>
-            <div className="px-8 divide-y-[1px] flex flex-col gap-4">
+            <div className="px-4 md:px-8 divide-y-[1px] flex flex-col gap-8">
               {/* About */}
               <OffersAndAsk
                 title="About"
@@ -170,14 +196,23 @@ const Profile = () => {
               />
 
               {/* Skills */}
-              <SkillsAndInterest title="Skills" />
+              <SkillsAndInterest
+                title="Skills"
+                label="What are your skills? You can also add your own!"
+                dropDownOptions={skillsOptions}
+              />
 
               {/* Interests */}
+              <SkillsAndInterest
+                title="Interests"
+                label="What are your interests? You can also add your own!"
+                dropDownOptions={interestsOptions}
+              />
 
               {/* Communities */}
-              <div className="pt-5">
+              <div className="pt-8">
                 <p className="text-2xl font-medium">Communities</p>
-                <div className="my-4 flex flex-wrap gap-2">
+                <div className="mt-4 flex flex-wrap gap-2">
                   {communityList.map((community, i) => (
                     <p
                       key={i * 77}
