@@ -25,6 +25,32 @@ const communityList = [
   '🪜 Ladder Community',
 ];
 
+const interestsOptions = [
+  { value: 'gaming', label: 'Gaming' },
+  { value: 'reading', label: 'Reading' },
+  { value: 'music', label: 'Music' },
+  { value: 'travel', label: 'Travel' },
+  { value: 'photography', label: 'Photography' },
+  { value: 'cooking', label: 'Cooking' },
+  { value: 'sports', label: 'Sports' },
+  { value: 'fitness', label: 'Fitness' },
+  { value: 'art', label: 'Art' },
+  { value: 'movies', label: 'Movies' },
+];
+
+const skillsOptions = [
+  { value: 'javascript', label: 'JavaScript' },
+  { value: 'python', label: 'Python' },
+  { value: 'java', label: 'Java' },
+  { value: 'csharp', label: 'C#' },
+  { value: 'html', label: 'HTML' },
+  { value: 'css', label: 'CSS' },
+  { value: 'sql', label: 'SQL' },
+  { value: 'git', label: 'Git' },
+  { value: 'agile', label: 'Agile' },
+  { value: 'testing', label: 'Testing' },
+];
+
 const Profile = () => {
   const [showProfile, setShowProfile] = useState(true);
   const [showActivity, setShowActivity] = useState(false);
@@ -170,9 +196,18 @@ const Profile = () => {
               />
 
               {/* Skills */}
-              <SkillsAndInterest title="Skills" />
+              <SkillsAndInterest
+                title="Skills"
+                label="What are your skills? You can also add your own!"
+                dropDownOptions={skillsOptions}
+              />
 
               {/* Interests */}
+              <SkillsAndInterest
+                title="Interests"
+                label="What are your interests? You can also add your own!"
+                dropDownOptions={interestsOptions}
+              />
 
               {/* Communities */}
               <div className="pt-5">
