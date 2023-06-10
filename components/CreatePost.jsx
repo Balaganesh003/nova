@@ -49,7 +49,7 @@ const CreatePost = ({ closeCreatePost }) => {
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
 
   const postObj = {
-    id: 'p1',
+    id: `${Math.floor(Math.random() * 100000000000000)}`,
     title: title,
     author: author,
     community: community,
@@ -205,21 +205,20 @@ const CreatePost = ({ closeCreatePost }) => {
 
           <Tiptap setDescription={setDescription} />
           {/* Footer */}
-          <div className="flex w-full justify-between flex-wrap  items-center ">
-            <div class="flex items-center w-fit">
+          <div className="flex w-full justify-between flex-wrap pt-3 items-center ">
+            <li class="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white   hover:border-gray-400">
               <input
-                onChange={() => setChecked(!checked)}
-                id="link-checkbox"
                 type="checkbox"
-                value={checked}
-                className=""
+                id="checkbox1"
+                className="peer relative h-4 w-4 shrink-0  appearance-none rounded border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-primary outline checked:outline-primary -outline-offset-[1px] checked:border-none"
               />
               <label
-                for="link-checkbox"
-                class="ml-2 text-[0.9rem] font-medium dark:text-gray-500">
+                for="checkbox1"
+                class="w-full cursor-pointer font-medium text-gray-600  ">
                 Allow anonymous comments
               </label>
-            </div>
+            </li>
+
             <div className=" ml-auto flex items-center justify-end gap-4 ">
               <button
                 onClick={() => closeCreatePost()}

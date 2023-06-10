@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const initialPostsState = {
   posts: [
     {
-      id: 'p1',
+      id: '3487395526201',
       title: 'My Post',
       author: {
         name: 'Balaganesh',
