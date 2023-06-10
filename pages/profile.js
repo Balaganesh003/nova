@@ -10,6 +10,8 @@ import OffersAndAsk from '../components/OffersAndAsk';
 import { useState } from 'react';
 import Contact from '../components/Contact';
 import SkillsAndInterest from '../components/SkillsAndInterest';
+import Experience from '@/components/Experience';
+import CompanyDetails from '@/components/CompanyDetails';
 
 const communityList = [
   '🚀 Startup Hub',
@@ -187,13 +189,11 @@ const Profile = () => {
                 placeholderText="Ex: Product Manager, Software Engineer, etc."
               />
               {/* Experience */}
-              <OffersAndAsk
+              <Experience
                 title="Experience"
-                question="What have you done?"
-                initialText="I have worked at"
-                label="Experience:"
-                placeholderText="Ex: Google, Facebook, etc."
+                question="What have you worked on?"
               />
+              {/* <CompanyDetails /> */}
 
               {/* Skills */}
               <SkillsAndInterest
