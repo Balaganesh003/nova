@@ -81,22 +81,38 @@ const NavBar = ({ setSidebarOpen, isProfilePage }) => {
         {/* Nav links */}
         <div className="flex items-center space-x-4 lg:pr-7 ">
           <div className="flex items-center space-x-2 sm:space-x-4 ">
-            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer relative">
-              <Image src={SearchLogo} alt="SearchLogo" className="lg:hidden " />
-            </div>
-            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
-              <Image src={MessageLogo} alt="MessageLogo" className="h-6 w-6" />
-            </div>
-            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all hidden lg:block cursor-pointer">
-              <Image
-                src={BookMarkLogo}
-                alt="BookMarkLogo"
-                className="h-6 w-6"
-              />
-            </div>
-            <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
-              <Image src={BellLogo} alt="BellLogo" className="h-6 w-6" />
-            </div>
+            <Link href="/search">
+              <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer relative">
+                <Image
+                  src={SearchLogo}
+                  alt="SearchLogo"
+                  className="lg:hidden "
+                />
+              </div>
+            </Link>
+            <Link href="/messages">
+              <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
+                <Image
+                  src={MessageLogo}
+                  alt="MessageLogo"
+                  className="h-6 w-6"
+                />
+              </div>
+            </Link>
+            <Link href="/bookmarks">
+              <div className="hover:bg-white rounded-full p-1 duration-500 transition-all hidden lg:block cursor-pointer">
+                <Image
+                  src={BookMarkLogo}
+                  alt="BookMarkLogo"
+                  className="h-6 w-6"
+                />
+              </div>
+            </Link>
+            <Link href="/notifications">
+              <div className="hover:bg-white rounded-full p-1 duration-500 transition-all  cursor-pointer">
+                <Image src={BellLogo} alt="BellLogo" className="h-6 w-6" />
+              </div>
+            </Link>
           </div>
           <Image
             onClick={() => setIsWindowOpen(!isWindowOpen)}
