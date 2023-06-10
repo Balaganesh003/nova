@@ -8,7 +8,17 @@
   box-sizing: border-box;
 }
 
+div,
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@font-face {
+  font-family: 'graphik';
+  src: url('../public/fonts/GraphikRegular.otf');
+}
+
 body {
-  font-family: 'Poppins', sans-serif;
-  background: #f9f9f9;
+  font-family: 'graphik', sans-serif;
 }

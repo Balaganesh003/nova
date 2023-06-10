@@ -34,6 +34,9 @@ const customStyles = {
   }),
   option: (provided, state) => ({
     ...provided,
+
+    backgroundColor: state.isSelected ? '#f4f4f4' : 'white', // Set selected option color
+
     '&:hover': {
       backgroundColor: '#f4f4f4', // Change the hover color here
     },
@@ -107,7 +110,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
 
       {isModalOpen && (
         <div className="h-screen w-screen overflow-x-hidden bg-black/30 fixed top-0 left-0 flex justify-center items-center">
-          <div className="bg-white w-[512px] min-h-[250px]  rounded-lg py-6 px-8">
+          <div className="bg-white w-full m-2 xw:w-[512px] min-h-[250px]  rounded-lg py-6 px-8">
             <h1 className="text-[1.6rem] font-bold pb-5">
               {finalSelected.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>

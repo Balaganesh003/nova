@@ -135,81 +135,82 @@ const Contact = ({ title, question }) => {
 
       {isModalOpen && (
         <>
-          <div className="h-screen w-full overflow-x-hidden bg-black/20 absolute top-0 left-0"></div>
-          <div className="bg-white w-[512px] lg:h-[358px] h-[320px] absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-lg py-6 px-8">
-            <h1 className="text-[1.6rem] font-bold pb-8">
-              {finalLinks[0].length ||
-              finalLinks[1].length ||
-              finalLinks[2].length ||
-              finalLinks[3].length > 0
-                ? `Edit ${title}`
-                : `Add ${title}`}
-            </h1>
-            <div className="flex flex-col gap-5 lg:mb-7 mb-5">
-              <div className=" flex  gap-5">
-                <div className="w-[50%]">
-                  <label className="block text-sm font-medium text-gray-500">
-                    Twitter
-                  </label>
-                  <input
-                    type="url"
-                    value={twitterLink}
-                    onChange={(e) => setTwitterLink(e.target.value)}
-                    placeholder={'Twitter'}
-                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
-                  />
+          <div className="h-screen w-full overflow-x-hidden bg-black/20 fixed top-0 left-0 flex items-center justify-center ">
+            <div className="bg-white w-full xw:w-[512px] lg:h-[358px] min-h-[320px]  rounded-lg py-6 px-8 mx-2">
+              <h1 className="text-[1.6rem] font-bold pb-8">
+                {finalLinks[0].length ||
+                finalLinks[1].length ||
+                finalLinks[2].length ||
+                finalLinks[3].length > 0
+                  ? `Edit ${title}`
+                  : `Add ${title}`}
+              </h1>
+              <div className="flex flex-col gap-3 lg:gap-5 lg:mb-7 mb-5">
+                <div className=" flex flex-col lg:flex-row gap-3 lg:gap-5">
+                  <div className="w-full lg:w-[50%]">
+                    <label className="block text-sm font-medium text-gray-500">
+                      Twitter
+                    </label>
+                    <input
+                      type="url"
+                      value={twitterLink}
+                      onChange={(e) => setTwitterLink(e.target.value)}
+                      placeholder={'Twitter'}
+                      className="mt-1  resize-none outline-none px-2 py-[6px] lg:py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-sm lg:text-base focus:ring-0 border-black "
+                    />
+                  </div>
+                  <div className="w-full lg:w-[50%]">
+                    <label className="block text-sm font-medium text-gray-500">
+                      Linkedin
+                    </label>
+                    <input
+                      type="text"
+                      value={linkedinLink}
+                      onChange={(e) => setLinkedinLink(e.target.value)}
+                      placeholder={'Linkedin'}
+                      className="mt-1  resize-none outline-none px-2 py-[6px] lg:py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-sm lg:text-base focus:ring-0 border-black "
+                    />
+                  </div>
                 </div>
-                <div className="w-[50%]">
-                  <label className="block text-sm font-medium text-gray-500">
-                    Linkedin
-                  </label>
-                  <input
-                    type="text"
-                    value={linkedinLink}
-                    onChange={(e) => setLinkedinLink(e.target.value)}
-                    placeholder={'Linkedin'}
-                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
-                  />
+                <div className=" flex flex-col lg:flex-row gap-3 lg:gap-5">
+                  <div className="w-full lg:w-[50%]">
+                    <label className="block text-sm font-medium text-gray-500">
+                      Instagram
+                    </label>
+                    <input
+                      type="text"
+                      value={instagramLink}
+                      onChange={(e) => setInstagramLink(e.target.value)}
+                      placeholder={'Instagram'}
+                      className="mt-1  resize-none outline-none px-2 py-[6px] lg:py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xm lg:text-base focus:ring-0 border-black "
+                    />
+                  </div>
+                  <div className="w-full lg:w-[50%]">
+                    <label className="block text-sm font-medium text-gray-500">
+                      Portfolio / personal website
+                    </label>
+                    <input
+                      type="text"
+                      value={portfolioLink}
+                      onChange={(e) => setPortfolioLink(e.target.value)}
+                      placeholder={'Website URL'}
+                      className="mt-1  resize-none outline-none px-2 py-[6px] lg:py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xm lg:text-base focus:ring-0 border-black "
+                    />
+                  </div>
                 </div>
               </div>
-              <div className=" flex  gap-5">
-                <div className="w-[50%]">
-                  <label className="block text-sm font-medium text-gray-500">
-                    Instagram
-                  </label>
-                  <input
-                    type="text"
-                    value={instagramLink}
-                    onChange={(e) => setInstagramLink(e.target.value)}
-                    placeholder={'Instagram'}
-                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
-                  />
-                </div>
-                <div className="w-[50%]">
-                  <label className="block text-sm font-medium text-gray-500">
-                    Portfolio / personal website
-                  </label>
-                  <input
-                    type="text"
-                    value={portfolioLink}
-                    onChange={(e) => setPortfolioLink(e.target.value)}
-                    placeholder={'Website URL'}
-                    className="mt-1  resize-none outline-none px-2 py-1 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border text-xs lg:text-base focus:ring-0 border-black "
-                  />
-                </div>
+              <div className=" ml-auto pt-4 flex items-center justify-end gap-4 ">
+                <button
+                  onClick={() => handleModal()}
+                  className="px-5 py-1 lg:px-[1.67rem] lg:py-[0.5rem] rounded-xl text-primary border border-primary hover:bg-primary/10  transition-all duration-300">
+                  Cancel
+                </button>
+                <button
+                  onClick={() => handleSubmit()}
+                  className="px-6 py-1 lg:px-[1.6rem] lg:py-2 rounded-xl bg-primary hover:bg-primary/90 transition-all duration-300 text-white">
+                  Submit
+                </button>
               </div>
-            </div>
-            <div className=" ml-auto  flex items-center justify-end gap-4 ">
-              <button
-                onClick={() => handleModal()}
-                className="px-5 py-1 lg:px-[1.67rem] lg:py-[0.5rem] rounded-xl text-primary border border-primary hover:bg-primary/10  transition-all duration-300">
-                Cancel
-              </button>
-              <button
-                onClick={() => handleSubmit()}
-                className="px-6 py-1 lg:px-[1.6rem] lg:py-2 rounded-xl bg-primary hover:bg-primary/90 transition-all duration-300 text-white">
-                Submit
-              </button>
             </div>
           </div>
         </>

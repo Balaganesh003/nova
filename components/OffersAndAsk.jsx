@@ -66,8 +66,11 @@ const OffersAndAsk = ({
       </div>
 
       {isModalOpen && (
-        <div className="fixed h-screen w-screen top-0 left-0 bg-black/30 z-[200] flex justify-center items-center">
-          <div className="bg-white w-[512px] lg:h-[300px] h-[280px]   rounded-lg py-6 px-8">
+        <div className="fixed h-screen w-screen top-0 left-0 bg-black/50 z-[200] flex xw:justify-center items-center">
+          <div
+            className={`bg-white mx-2 w-full  xw:w-[512px]  rounded-lg py-7 px-8 ${
+              title == 'About' ? 'h-[412px]' : 'lg:h-[300px] h-[280px]'
+            } `}>
             <h1 className="text-[1.6rem] font-bold pb-5 ">
               {finalContent.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>
@@ -80,7 +83,9 @@ const OffersAndAsk = ({
                 value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder={placeholderText}
-                className="mt-1 h-[80px] resize-none outline-none px-4 py-2 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border border-black text-xs lg:text-base focus:ring-0  "
+                className={`mt-1  resize-none outline-none px-4 py-2 rounded-lg placeholder:text-gray-500 text-gray-500 w-full border border-black text-xs lg:text-base focus:ring-0 ${
+                  title == 'About' ? 'h-[185px]' : ' h-[80px]'
+                } `}
               />
             </div>
             <div className=" ml-auto  flex items-center justify-end gap-4 ">
