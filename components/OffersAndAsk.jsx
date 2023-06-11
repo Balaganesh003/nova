@@ -42,11 +42,11 @@ const OffersAndAsk = ({
       </div>
       <div className="">
         {finalContent.length > 0 ? (
-          <div className="text-gray-800 w-full h-full ">
-            <p className="mr-1 font-semibold text-black break-word">
-              {initialText}
+          <div className="text-gray-800   h-full whitespace-normal break-words">
+            <p>
+              <span className="font-bold">{initialText} </span>
+              <span className="font-normal">{finalContent}</span>
             </p>
-            {finalContent}
           </div>
         ) : (
           <div
@@ -68,7 +68,7 @@ const OffersAndAsk = ({
       {isModalOpen && (
         <div className="fixed h-screen w-screen top-0 left-0 bg-black/50 z-[200] flex xw:justify-center items-center">
           <div
-            className={`bg-white mx-2 w-full  xw:w-[512px]  rounded-lg py-7 px-8 ${
+            className={`bg-white  w-full  xw:w-[512px]  rounded-lg py-7 px-8 ${
               title == 'About' ? 'h-[412px]' : 'lg:h-[300px] h-[280px]'
             } `}>
             <h1 className="text-[1.6rem] font-bold pb-5 ">

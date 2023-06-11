@@ -15,18 +15,18 @@ import { useSelector } from 'react-redux';
 import { experienceActions } from '../store/experience-slice';
 
 const monthOptions = [
-  { value: '01', label: 'January' },
-  { value: '02', label: 'February' },
-  { value: '03', label: 'March' },
-  { value: '04', label: 'April' },
-  { value: '05', label: 'May' },
-  { value: '06', label: 'June' },
-  { value: '07', label: 'July' },
-  { value: '08', label: 'August' },
-  { value: '09', label: 'September' },
-  { value: '10', label: 'October' },
-  { value: '11', label: 'November' },
-  { value: '12', label: 'December' },
+  { value: 1, label: 'January' },
+  { value: 2, label: 'February' },
+  { value: 3, label: 'March' },
+  { value: 4, label: 'April' },
+  { value: 5, label: 'May' },
+  { value: 6, label: 'June' },
+  { value: 7, label: 'July' },
+  { value: 8, label: 'August' },
+  { value: 9, label: 'September' },
+  { value: 10, label: 'October' },
+  { value: 11, label: 'November' },
+  { value: 12, label: 'December' },
 ];
 
 const yearOptions = [];
@@ -41,6 +41,7 @@ const Experience = ({ title, question }) => {
   const dispatch = useDispatch();
 
   const { experienceList } = useSelector((state) => state.experience);
+  const [experienceId, setExperienceId] = useState(experienceList.length + 1);
   const [checked, setChecked] = useState(false);
   const [jobTitle, setJobTitle] = useState('');
   const [startMonth, setStartMonth] = useState('');
@@ -66,23 +67,52 @@ const Experience = ({ title, question }) => {
     }
   };
 
+  const getMonthValue = (monthName) => {
+    const monthOption = monthOptions.find(
+      (option) => option.label.toLowerCase() === monthName.toLowerCase()
+    );
+
+    return monthOption ? monthOption.value : null;
+  };
+
   const calculateDifference = (startMonth, startYear, endMonth, endYear) => {
-    endMonth = endMonth === 'present' ? new Date().getMonth() : endMonth;
+    startMonth = getMonthValue(startMonth);
+
+    endMonth =
+      endMonth === 'present'
+        ? new Date().getMonth() + 1
+        : (endMonth = getMonthValue(endMonth));
     endYear = endYear === 'present' ? new Date().getFullYear() : endYear;
 
     // Check if the end year is the current year
     const isCurrentYear = endYear === new Date().getFullYear();
 
-    // Get the number of months between the start and end dates
-    const months = isCurrentYear
-      ? endMonth - startMonth
-      : endMonth - startMonth + 12 * (endYear - startYear);
+    // Calculate the difference in months
+    let months = 0;
+    if (isCurrentYear) {
+      months = endMonth - startMonth;
+    } else {
+      months = 12 - startMonth + endMonth + 12 * (endYear - startYear - 1);
+    }
 
-    // Get the number of years between the start and end dates
-    const years = endYear - startYear;
-    console.log(months, years);
+    // Calculate the difference in years
+    let years = endYear - startYear;
+
+    // Adjust the months if it exceeds 12
+    if (months >= 12) {
+      months %= 12;
+    }
+
+    years = startMonth > endMonth ? years - 1 : years;
+
+    const duration =
+      years > 0 && months > 0
+        ? `${years} years and ${months} months`
+        : years > 0
+        ? `${years} years`
+        : `${months} months`;
     // Return the difference in months and years
-    return { months, years };
+    return duration;
   };
 
   useEffect(() => {
@@ -106,8 +136,23 @@ const Experience = ({ title, question }) => {
     setIsCompanyAdded(false);
   };
 
+  const clearExperienceDetails = () => {
+    setJobTitle('');
+    setStartMonth('');
+    setStartYear('');
+    setEndMonth('');
+    setEndYear('');
+    setDescription('');
+    setIsEditMode(false);
+    setChecked(false);
+    setExperienceId(experienceList.length + 1);
+    clearCompanyDetails();
+    setIsExperienceModalOpen(false);
+    setIsCompanyModalOpen(false);
+  };
+
   const experienceObj = {
-    id: `${experienceList.length}`,
+    id: experienceId,
     jobTitle: jobTitle,
     description: description,
     duration: {
@@ -143,11 +188,13 @@ const Experience = ({ title, question }) => {
     setIsCompanyModalOpen(false);
     setChecked(false);
     setIsCompanyAdded(false);
+    clearExperienceDetails();
     setIsEditMode(false);
   };
 
   const updateExperience = (experienceObj) => {
     setIsEditMode(true);
+    setExperienceId(experienceObj.id);
     setChecked(experienceObj.checked);
     setJobTitle(experienceObj.jobTitle);
     setStartMonth(experienceObj.duration.startMonth);
@@ -192,7 +239,7 @@ const Experience = ({ title, question }) => {
               <div
                 key={experience.id}
                 className="text-gray-800 w-full h-full flex  ">
-                <div className="flex gap-4">
+                <div className="flex gap-4 w-full">
                   <div className="w-fit flex-shrink-0">
                     <Image
                       width={1200}
@@ -203,38 +250,57 @@ const Experience = ({ title, question }) => {
                     />
                   </div>
                   <div className="w-full">
-                    <div>
-                      <div className=" flex justify-between ">
-                        <h1 className="text-lg font-bold">
+                    <div className="w-full">
+                      <div className=" flex justify-between w-full ">
+                        <h1 className="text-lg font-bold ">
                           {experience.company.name}
                         </h1>
-                        <Image
-                          onClick={() => updateExperience(experience)}
-                          src={PencileLogo}
-                          alt="Pencile Logo"
-                          width={24}
-                          height={24}
-                          className=" cursor-pointer flex-shrink-0 hover:bg-[#eee] rounded-full"
-                        />
+                        <div>
+                          <Image
+                            onClick={() => updateExperience(experience)}
+                            src={PencileLogo}
+                            alt="Pencile Logo"
+                            width={24}
+                            height={24}
+                            className=" cursor-pointer flex-shrink-0 hover:bg-[#eee] rounded-full"
+                          />
+                        </div>
                       </div>
                     </div>
 
                     <p className="text-base text-gray-500">
                       {experience.jobTitle}
                     </p>
-                    {/* <p className="text-sm flex items-center">
-                      {experience.duration.startMonth}{' '}
-                      {experience.duration.startYear} -{' '}
-                      {experience.duration.endYear == 'present'
-                        ? 'Current'
-                        : experience.duration.endMonth +
-                          '' +
-                          experience.duration.endYear}
-                      <span className="text-gray-500 flex items-center">
-                        <div className="bg-gray-500 inline-block mx-1 w-[3px] h-[3px] font-extrabold rounded-full"></div>
-                        2 months
-                      </span>
-                    </p> */}
+
+                    <div className="flex flex-wrap gap-[3px] text-sm items-center w-full break-words">
+                      <div className="flex ">
+                        <p className="flex">
+                          <span>{experience.duration.startMonth}</span>
+                          <span>{experience.duration.startYear} </span>
+                          <p className="ml-1">-</p>
+                        </p>
+                        <span className="ml-1">
+                          {experience.duration.endYear == 'present'
+                            ? 'Current'
+                            : experience.duration.endMonth +
+                              '' +
+                              experience.duration.endYear}
+                        </span>
+                      </div>
+                      <div className="h-1 w-1 rounded-full bg-gray-800 mx-[2px]"></div>
+
+                      {calculateDifference(
+                        experience.duration.startMonth,
+                        experience.duration.startYear,
+                        experience.duration.endMonth,
+                        experience.duration.endYear
+                      )
+                        .split(' ')
+                        .map((item, index) => (
+                          <span key={index}>{item}</span>
+                        ))}
+                    </div>
+
                     <p className="text-sm mt-[6px]">{experience.description}</p>
                   </div>
                 </div>
@@ -275,7 +341,7 @@ const Experience = ({ title, question }) => {
                   onChange={(e) => setJobTitle(e.target.value)}
                   value={jobTitle}
                   placeholder="Ex: Software Engineer"
-                  className="border border-black px-4 py-2 focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full"
+                  className="border border-black px-4  py-2  text-sm lg:text-base focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full"
                 />
               </div>
 
@@ -293,7 +359,7 @@ const Experience = ({ title, question }) => {
                   onChange={(e) => setCompanyName(e.target.value)}
                   value={companyName}
                   placeholder="Company/Organization"
-                  className="border border-black px-4 py-2 focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full "
+                  className="border border-black px-4 py-2 text-sm lg:text-base focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full "
                 />
                 {isCompanyAdded && (
                   <Image
@@ -338,7 +404,7 @@ const Experience = ({ title, question }) => {
                     />
                     <label
                       for="checkbox1"
-                      className="w-full cursor-pointer font-medium text-gray-600  ">
+                      className="w-full cursor-pointer font-medium text-gray-600 text-sm lg:text-base ">
                       I currently work here
                     </label>
                   </li>
@@ -347,15 +413,15 @@ const Experience = ({ title, question }) => {
                 {/* Start and End Date  */}
                 <div className=" block ">
                   <div className="flex w-full ">
-                    <div className={`flex-1 mr-4`}>
+                    <div className={`flex-1 lg:mr-4 mr-2`}>
                       <label
                         htmlFor="title"
                         className="text-sm font-medium text-gray-500">
                         Start Date
                         <span className="text-red-500">*</span>
                       </label>
-                      <div className="flex gap-2">
-                        <div className="w-[60%] min-w-[100px]">
+                      <div className="flex gap-2 ">
+                        <div className="w-[60%]">
                           <DropDown
                             dropDownOptions={monthOptions}
                             isMulti={false}
@@ -378,7 +444,7 @@ const Experience = ({ title, question }) => {
                       </div>
                     </div>
 
-                    <div className="flex-1 w-full mr-4">
+                    <div className="flex-1 w-full lg:mr-4 mr-2">
                       {!checked && (
                         <>
                           <label
@@ -427,11 +493,11 @@ const Experience = ({ title, question }) => {
                   onChange={(e) => setDescription(e.target.value)}
                   value={description}
                   placeholder="Ex: Worked on the mobile app team and learned a lot about coding iOS apps. It was a great experience! I loved it!"
-                  className="border border-black px-4 py-2 resize-none focus:border rounded-lg placeholder:text-gray-500 h-[90px] focus:outline-none w-full"
+                  className="border border-black px-4 py-2 text-sm lg:text-base resize-none focus:border rounded-lg placeholder:text-gray-500 h-[90px] focus:outline-none w-full"
                 />
               </div>
               {/* Footer */}
-              <div className="flex w-full justify-between flex-wrap pt-3 items-center">
+              <div className="flex w-full justify-between  pt-3 ">
                 {/*  */}
                 <div className={` ${!isEditMode && 'hidden'}`}>
                   <button
@@ -440,9 +506,9 @@ const Experience = ({ title, question }) => {
                     Delete
                   </button>
                 </div>
-                <div className=" ml-auto flex items-center justify-end gap-4 ">
+                <div className=" ml-auto flex items-center justify-end gap-4 flex-wrap">
                   <button
-                    onClick={() => setIsExperienceModalOpen(false)}
+                    onClick={() => clearExperienceDetails()}
                     className="px-5 py-1 xw:px-[1.67rem] xw:py-[0.5rem] rounded-xl text-primary border border-primary hover:bg-primary/10  transition-all duration-300">
                     Cancel
                   </button>
@@ -473,6 +539,7 @@ const Experience = ({ title, question }) => {
           setCompanySize={setCompanySize}
           setCompanyLogoLink={setCompanyLogoLink}
           setIsCompanyAdded={setIsCompanyAdded}
+          clearCompanyDetails={clearCompanyDetails}
         />
       )}
     </div>

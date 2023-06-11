@@ -17,6 +17,13 @@ const customStyles = {
       borderColor: '#efefef',
     },
     focus: 'none',
+
+    '@media(max-width: 768px)': {
+      padding: '2px',
+      fontSize: '14px',
+    },
+
+    '&:hover': {},
   }),
   singleValue: (provided) => ({
     ...provided,

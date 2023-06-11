@@ -27,7 +27,7 @@ const CompanyDetails = ({
   setCompanyWebsite,
   companySize,
   setCompanySize,
-
+  clearCompanyDetails,
   setIsCompanyAdded,
 }) => {
   const [isAllFieldsFilled, setIsAllFieldsFilled] = useState(false);
@@ -84,7 +84,7 @@ const CompanyDetails = ({
                 width={200}
                 height={200}
                 alt="logo"
-                className="cursor-pointer rounded-full object-cover"
+                className="cursor-pointer rounded-full w-full h-full object-cover"
               />
             </div>
             {/* company logo */}
@@ -99,7 +99,7 @@ const CompanyDetails = ({
                   onChange={(e) => setCompanyLogoLink(e.target.value)}
                   value={companyLogoLink}
                   placeholder="Upload your company logo"
-                  className=" px-4 py-2  rounded-l-lg placeholder:text-gray-500  focus:outline-none w-full"></input>
+                  className=" px-4 py-2  rounded-l-lg placeholder:text-gray-500 text-sm lg:text-base focus:outline-none w-full"></input>
                 <button
                   onClick={() => setCompanyLogo(companyLogoLink)}
                   className="bg-[#e9ecef] border-l border-black text-[#616161] px-4 py-2 rounded-r-lg">
@@ -118,7 +118,7 @@ const CompanyDetails = ({
                 onChange={(e) => setCompanyName(e.target.value)}
                 value={companyName}
                 placeholder="Ex: Google"
-                className="border border-black px-4 py-2 focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full"
+                className="border border-black px-4 py-2 focus:border rounded-lg text-sm lg:text-base placeholder:text-gray-500  focus:outline-none w-full"
               />
             </div>
             {/* Company Website */}
@@ -132,7 +132,7 @@ const CompanyDetails = ({
                 onChange={(e) => setCompanyWebsite(e.target.value)}
                 value={companyWebsite}
                 placeholder="Upload your company logo"
-                className="border border-black px-4 py-2 focus:border rounded-lg placeholder:text-gray-500  focus:outline-none w-full"
+                className="border border-black px-4 py-2 focus:border rounded-lg text-sm lg:text-base placeholder:text-gray-500  focus:outline-none w-full"
               />
             </div>
             {/* Company Size */}
@@ -151,7 +151,10 @@ const CompanyDetails = ({
             {/* Buttons */}
             <div className=" ml-auto flex items-center justify-end gap-4 pt-4">
               <button
-                onClick={() => setIsCompanyModalOpen(false)}
+                onClick={() => [
+                  setIsCompanyModalOpen(false),
+                  clearCompanyDetails(),
+                ]}
                 className="px-5 py-1 xw:px-[1.67rem] xw:py-[0.5rem] rounded-xl text-primary border border-primary hover:bg-primary/10  transition-all duration-300">
                 Cancel
               </button>

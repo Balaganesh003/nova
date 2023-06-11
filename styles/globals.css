@@ -22,3 +22,10 @@ a {
 body {
   font-family: sans-serif;
 }
+
+@media (max-width: 768px) {
+  .react-select-container {
+    width: 100% !important;
+    padding: 0 !important;
+  }
+}
