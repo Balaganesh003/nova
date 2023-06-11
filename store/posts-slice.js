@@ -28,6 +28,8 @@ const initialPostsState = {
       createAt: '2023-06-01T12:00:00.000Z',
     },
   ],
+
+  selectedPost: null,
 };
 
 const postsSlice = createSlice({
@@ -36,6 +38,11 @@ const postsSlice = createSlice({
   reducers: {
     addPost(state, action) {
       state.posts.unshift(action.payload);
+    },
+    getPostById(state, action) {
+      state.selectedPost = state.posts.find(
+        (post) => post.id === action.payload
+      );
     },
   },
 });

@@ -39,7 +39,6 @@ const communityList = [
 const CreatePost = ({ closeCreatePost }) => {
   const dispatch = useDispatch();
   const titleRef = createRef();
-  const [checked, setChecked] = useState(false);
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState(authorList[0]);
   const [community, setCommunity] = useState('Select a community');

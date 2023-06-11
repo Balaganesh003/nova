@@ -23,7 +23,7 @@ const Feed = ({ openCreatePost }) => {
   return (
     <div>
       {/* Input Box */}
-      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white md:rounded-lg">
+      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white  md:rounded-lg">
         <div>
           <Image
             src={ProfilePhoto}
@@ -36,7 +36,7 @@ const Feed = ({ openCreatePost }) => {
             onFocus={() => openCreatePost()}
             type="text"
             placeholder="Write a post..."
-            className="bg-[#f4f4f4] outline-none px-4 py-2 rounded-lg placeholder:text-black  w-full border border-none  focus:ring-0 focus:border-black "
+            className="bg-[#f4f4f4] outline-none px-4 py-2 rounded-lg hover:bg-[#e0e0e0] transition-all duration-200 placeholder:text-black  w-full border border-none  focus:ring-0 focus:border-black "
           />
         </div>
       </div>

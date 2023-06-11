@@ -184,14 +184,14 @@ const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
               <div className="flex flex-col pt-8 pb-5 space-y-4  overflow-x-hidden justify-center items-start ">
                 {sideBarList.map((item) => (
                   <Link
-                    className="block w-full  "
+                    className={`block w-full ${
+                      item.name == 'Bookmarks' ? 'lg:hidden ' : 'lg:flex '
+                    }`}
                     href={item.href}
                     key={item.id}>
                     <div
                       key={item.id}
-                      className={`${
-                        item.name == 'Bookmarks' ? 'lg:hidden' : 'lg:flex'
-                      } flex space-x-4 items-center  hover:bg-[#f4f4f4] rounded-full px-2  h-10 w-full`}>
+                      className={` flex space-x-4 items-center  hover:bg-[#f4f4f4] rounded-full px-2 h-10  w-full`}>
                       <Image
                         src={item.logo}
                         alt="HomeLogo"

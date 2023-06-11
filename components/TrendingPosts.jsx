@@ -42,7 +42,7 @@ const trendingPosts = [
 
 const TrendingPosts = () => {
   return (
-    <div className="max-w-[18rem] pb-10">
+    <div className="min-w-[15rem] max-w-[18rem] pb-10">
       <h2 className="font-bold w-fit text-[0.75rem] text-primary uppercase mb-3">
         Trending Posts
       </h2>

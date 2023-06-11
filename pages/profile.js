@@ -58,9 +58,9 @@ const Profile = () => {
   const [showActivity, setShowActivity] = useState(false);
 
   return (
-    <div className="flex flex-col md:flex-row md:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide ">
+    <div className="flex flex-col md:flex-row lg:gap-7 gap-3 lg:ml-[3.13rem] pt-[3.5rem] justify-center md:max-h-screen md:overflow-hidden  md:scrollbar-hide ">
       {/* Content for the left column */}
-      <div className="md:w-[400px]  h-full flex-shrink-0 md:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
+      <div className="md:w-[400px]  h-full flex-shrink-0   md:ml-5 lg:ml-7 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
         <div className="w-full h-full ">
           <div className=" md:rounded-lg md:mx-2  mb-3 shadow-equal">
             {/* Profile Banner */}
@@ -153,7 +153,7 @@ const Profile = () => {
         </div>
       </div>
       {/* Content for the right column */}
-      <div className="md:max-w-[600px] h-full md:mr-10 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
+      <div className="md:max-w-[600px] h-full md:mr-8 lg:mr-10 md:pt-11 md:pb-14 md:overflow-y-scroll md:max-h-screen bg-gradient-to-b md:scrollbar-hide ">
         <div className="h-full w-full ">
           <div className=" md:rounded-lg md:mx-2 md:mb-12 shadow-equal">
             {/* Slidebar */}
