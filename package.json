@@ -14,9 +14,11 @@
     "@reduxjs/toolkit": "^1.9.5",
     "@tiptap/extension-color": "^2.0.3",
     "@tiptap/extension-hard-break": "^2.0.3",
+    "@tiptap/extension-image": "^2.0.3",
     "@tiptap/extension-link": "^2.0.3",
     "@tiptap/extension-list-item": "^2.0.3",
     "@tiptap/extension-placeholder": "^2.0.3",
+    "@tiptap-pro/extension-emoji": "^1.0.0",
     "@tiptap/extension-text-style": "^2.0.3",
     "@tiptap/extension-underline": "^2.0.3",
     "@tiptap/react": "^2.0.3",
@@ -38,6 +40,7 @@
     "sass": "^1.63.2",
     "tailwind-scrollbar": "^3.0.4",
     "tailwind-scrollbar-hide": "^1.1.7",
-    "tailwindcss": "3.3.2"
+    "tailwindcss": "3.3.2",
+    "tippy.js": "^6.3.7"
   }
 }
