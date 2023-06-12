@@ -133,7 +133,7 @@ const Tiptap = ({ setDescription }) => {
         },
       }),
     ],
-    content: ` `,
+    content: ``,
     onUpdate: ({ editor }) => {
       setDescription(editor.getHTML());
     },

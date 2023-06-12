@@ -61,7 +61,7 @@ const NavBar = ({ setSidebarOpen, isProfilePage }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r z-50 from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
+    <div className="bg-gradient-to-r z-[95] from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
       <div
         className={`${
           isProfilePage && 'hidden md:flex'

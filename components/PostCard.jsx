@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import MoreLogo from '../assets/svgexport-16.svg';
 import EmojiLogo from '../assets/svgexport-17.svg';
@@ -7,13 +7,33 @@ import parser from 'html-react-parser';
 import TimeAgo from 'react-timeago';
 import Link from 'next/link';
 import NoCommentLogo from '../assets/svgexport-19.svg';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
+import { postsActions } from '@/store/posts-slice';
+import { useDispatch } from 'react-redux';
 
-const PostCard = ({ post, hidePost }) => {
+const PostCard = ({ post }) => {
+  const dispatch = useDispatch();
+  const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+
+  const addEmoji = (e) => {
+    // const emoji = e.unified
+    //   .split('-')
+    //   .map((el) => String.fromCodePoint(`0x${el}`))
+    //   .join('');
+    dispatch(
+      postsActions.addReaction({ reactionType: e.native, postId: post.id })
+    );
+
+    setShowEmojiPicker(false);
+
+    // editor.chain().focus().insertContent(emoji).run();
+  };
   return (
-    <Link href={`posts/${post.id}`}>
+    <div className="relative">
       <div
         key={post.id}
-        className=" max-h-[445px] overflow-hidden relative md:rounded-lg  w-full cursor-pointer mb-10 bg-white ">
+        className=" max-h-[445px] overflow-hidden relative md:rounded-lg  w-full cursor-pointer shadow-sm bg-white  ">
         <div className={` p-8 `}>
           <div className="flex items-center justify-between  pb-4">
             <div className="flex items-center gap-4 ">
@@ -60,20 +80,38 @@ const PostCard = ({ post, hidePost }) => {
             {parser(post?.description)}
           </div>
         </div>
+
         <div className="w-full h-[7rem] absolute bg-gradient-to-b from-[#fefefe] to-gray-200 blur-lg opacity-90 md:rounded-b-lg  bottom-0"></div>
-        <div className="hover:bg-primary/10 group md:rounded-lg h-full w-full absolute inset-0">
-          <div className="w-full h-14  pb-8 md:rounded-b-lg z-[10] absolute bottom-0 flex justify-between items-center px-8">
+        <div className=" group hover:bg-primary/10 md:rounded-lg h-full w-full absolute inset-0">
+          <Link
+            href={`posts/${post.id}`}
+            className="w-full h-full inline-block"></Link>
+          <div className="w-full h-14  pb-8 md:rounded-b-lg z-[90] absolute bottom-0 flex justify-between items-center px-8">
             <div className="flex gap-2">
               {post.reactions.map((reaction) => (
                 <div
+                  onClick={() =>
+                    dispatch(
+                      postsActions.addReaction({
+                        reactionType: reaction.type,
+                        postId: post.id,
+                      })
+                    )
+                  }
                   key={reaction.id}
-                  className="bg-[#ececec]  w-[3.15rem] py-1 items-center justify-center flex gap-[2px] hover:border-[#e0e0e0] hover:border rounded-full">
+                  className={`  w-[3.15rem] py-1 items-center justify-center flex gap-[2px]  rounded-full ${
+                    reaction?.selected
+                      ? 'bg-primary/10 border-primary border'
+                      : 'bg-[#ececec] hover:border-[#e0e0e0] hover:border '
+                  } `}>
                   <span className="text-xs">{reaction?.type}</span>
                   <span className="text-xs">{reaction?.count}</span>
                 </div>
               ))}
 
-              <div className="bg-[#eaeaea] w-[3.15rem] flex items-center justify-center py-1 rounded-full hover:border-[#e0e0e0] hover:border">
+              <div
+                onClick={() => setShowEmojiPicker(!showEmojiPicker)}
+                className="bg-[#eaeaea] w-[3.15rem] flex items-center justify-center py-1 rounded-full hover:border-[#e0e0e0] hover:border">
                 <Image src={EmojiLogo} alt="CommentLogo" className="w-4 h-4" />
               </div>
             </div>
@@ -91,7 +129,22 @@ const PostCard = ({ post, hidePost }) => {
           </div>
         </div>
       </div>
-    </Link>
+
+      {/* Emoji */}
+      {showEmojiPicker && (
+        <Picker
+          sheetSize={4}
+          theme={'light'}
+          previewPosition={'none'}
+          style={{
+            width: '100%',
+            height: '200px !important',
+          }}
+          data={data}
+          onEmojiSelect={addEmoji}
+        />
+      )}
+    </div>
   );
 };
 

@@ -10,6 +10,8 @@ import DownArrow from '../assets/svgexport-21.svg';
 import { useDispatch } from 'react-redux';
 import { postsActions } from '../store/posts-slice';
 import toast, { Toaster } from 'react-hot-toast';
+import data from '@emoji-mart/data';
+import Picker from '@emoji-mart/react';
 
 const authorList = [
   {
@@ -43,7 +45,6 @@ const CreatePost = ({ closeCreatePost }) => {
   const [author, setAuthor] = useState(authorList[0]);
   const [community, setCommunity] = useState('Select a community');
   const [description, setDescription] = useState('');
-
   const [isAuthorDropdownOpen, setIsAuthorDropdownOpen] = useState(false);
   const [isCommunityDropdownOpen, setIsCommunityDropdownOpen] = useState(false);
 
@@ -53,12 +54,12 @@ const CreatePost = ({ closeCreatePost }) => {
     author: author,
     community: community,
     description: description,
-
     reactions: [
       {
-        id: 'r2',
+        id: `${Math.floor(Math.random() * 100000000000000)}`,
         type: '👍',
         count: 1,
+        selected: true,
       },
     ],
     comments: [],
@@ -186,7 +187,6 @@ const CreatePost = ({ closeCreatePost }) => {
               </div>
             </div>
           </div>
-          {/* Emoji */}
 
           {/* Title */}
           <div className="pb-1">

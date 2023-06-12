@@ -141,11 +141,9 @@ const Feed = ({ openCreatePost }) => {
       </div>
       {/* Posts */}
 
-      <div>
+      <div className="flex flex-col gap-2 pb-[24rem]">
         {posts.length > 0 &&
-          posts.map((post) => (
-            <PostCard key={post.id} post={post} hidePost={hidePost} />
-          ))}
+          posts.map((post) => <PostCard key={post?.id} post={post} />)}
       </div>
     </div>
   );
