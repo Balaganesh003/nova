@@ -69,7 +69,7 @@ const Experience = ({ title, question }) => {
 
   const getMonthValue = (monthName) => {
     const monthOption = monthOptions.find(
-      (option) => option.label.toLowerCase() === monthName.toLowerCase()
+      (option) => option.label.toLowerCase() === monthName?.toLowerCase()
     );
 
     return monthOption ? monthOption.value : null;
@@ -156,10 +156,10 @@ const Experience = ({ title, question }) => {
     jobTitle: jobTitle,
     description: description,
     duration: {
-      startMonth: startMonth,
-      startYear: startYear,
-      endMonth: endMonth,
-      endYear: endYear,
+      startMonth: startMonth.label,
+      startYear: startYear.label,
+      endMonth: endMonth.label,
+      endYear: endYear.label,
     },
     checked: checked,
     company: {
@@ -277,7 +277,7 @@ const Experience = ({ title, question }) => {
                         <p className="flex">
                           <span>{experience.duration.startMonth}</span>
                           <span>{experience.duration.startYear} </span>
-                          <p className="ml-1">-</p>
+                          <span className="ml-1 inline-block">-</span>
                         </p>
                         <span className="ml-1">
                           {experience.duration.endYear == 'present'
@@ -297,7 +297,9 @@ const Experience = ({ title, question }) => {
                       )
                         .split(' ')
                         .map((item, index) => (
-                          <span key={index}>{item}</span>
+                          <div className="inline" key={index}>
+                            {item}
+                          </div>
                         ))}
                     </div>
 
@@ -394,7 +396,7 @@ const Experience = ({ title, question }) => {
                 <div className="mb-2">
                   <li
                     onClick={() => setChecked(!checked)}
-                    class="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white   hover:border-gray-400 ">
+                    className="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white   hover:border-gray-400 ">
                     <input
                       value={checked}
                       onClick={() => setChecked(!checked)}
@@ -403,7 +405,7 @@ const Experience = ({ title, question }) => {
                       className="peer  relative h-4 w-4 shrink-0 cursor-pointer appearance-none rounded-[2px] border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-primary outline checked:outline-primary outline-gray-500 -outline-offset-[1px] checked:border-none"
                     />
                     <label
-                      for="checkbox1"
+                      htmlFor="checkbox1"
                       className="w-full cursor-pointer font-medium text-gray-600 text-sm lg:text-base ">
                       I currently work here
                     </label>

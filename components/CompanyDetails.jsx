@@ -47,7 +47,6 @@ const CompanyDetails = ({
 
   useEffect(() => {
     checkAllFieldsFilled();
-    console.log(companyLogo, companyName, companyWebsite, companySize);
   }, [companyLogo, companyName, companyWebsite, companySize]);
 
   return (
