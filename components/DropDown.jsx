@@ -4,13 +4,13 @@ import Select from 'react-select';
 const customStyles = {
   control: (provided, state) => ({
     ...provided,
-    borderRadius: '8px', // Customize input field border-radius
+    borderRadius: '8px',
     padding: '2px 8px 2px 8px',
     placeholder: 'Skills',
-    boxShadow: state.isFocused ? 'none' : 'none', // Customize focus ring color
+    boxShadow: state.isFocused ? 'none' : 'none',
     borderColor: '#000000',
 
-    border: 'none', // Default border color
+    border: 'none',
     input: {
       border: 'none',
       outline: 'none',
@@ -34,20 +34,19 @@ const customStyles = {
   menu: (provided) => ({
     ...provided,
     borderRadius: '8px',
-    // Customize dropdown border-radius
   }),
 
   menuList: (provided) => ({
     ...provided,
-    borderRadius: '4px', // Apply border radius to the bottom of the options dropdown
-    maxHeight: '160px', // Set a max height for the dropdown
+    borderRadius: '4px',
+    maxHeight: '160px',
     padding: '4px 0px',
   }),
 
   multiValue: (provided) => ({
     ...provided,
 
-    borderRadius: '4px', // Customize multi-value tag border-radius
+    borderRadius: '4px',
   }),
 
   dropdownIndicator: (provided) => ({
@@ -67,7 +66,7 @@ const customStyles = {
     backgroundColor: state.isSelected ? '#f4f4f4' : 'white',
     color: state.isSelected ? '#555' : '#555',
     '&:hover': {
-      backgroundColor: '#f4f4f4', // Change the hover color here
+      backgroundColor: '#f4f4f4',
     },
   }),
 };

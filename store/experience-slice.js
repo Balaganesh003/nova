@@ -8,10 +8,10 @@ const initialPostsState = {
       description:
         'I have worked on React, Redux, Next.js, Tailwind CSS, and more.',
       duration: {
-        startMonth: 'Jan',
-        startYear: '2020',
-        endMonth: 'present',
-        endYear: 'present',
+        startMonth: { value: 1, label: 'January' },
+        startYear: { value: '2020', label: '2020' },
+        endMonth: { value: 3, label: 'March' },
+        endYear: { value: '2023', label: '2023' },
       },
       checked: true,
       company: {

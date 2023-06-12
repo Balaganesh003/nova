@@ -3,12 +3,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import ColoredCrossLogo from '../assets/svgexport-26.svg';
+
 import PencileLogo from '../assets/PENCIL.svg';
 import Image from 'next/image';
 import CloseLogo from '../assets/svgexport-30.svg';
 import CrossLogo from '../assets/svgexport-13.svg';
 import { useDispatch } from 'react-redux';
-import toast, { Toaster } from 'react-hot-toast';
+import toast from 'react-hot-toast';
 import DropDown from './DropDown';
 import CompanyDetails from './CompanyDetails';
 import { useSelector } from 'react-redux';
@@ -42,7 +43,7 @@ const Experience = ({ title, question }) => {
 
   const { experienceList } = useSelector((state) => state.experience);
   const [experienceId, setExperienceId] = useState(experienceList.length + 1);
-  const [checked, setChecked] = useState(false);
+  const [checked, setChecked] = useState(true);
   const [jobTitle, setJobTitle] = useState('');
   const [startMonth, setStartMonth] = useState('');
   const [startYear, setStartYear] = useState('');
@@ -62,8 +63,14 @@ const Experience = ({ title, question }) => {
 
   const isCurrentlyWorking = () => {
     if (checked) {
-      setEndMonth('present');
-      setEndYear('present');
+      setEndMonth({
+        value: 'present',
+        label: 'present',
+      });
+      setEndYear({
+        value: 'present',
+        label: 'present',
+      });
     }
   };
 
@@ -84,10 +91,8 @@ const Experience = ({ title, question }) => {
         : (endMonth = getMonthValue(endMonth));
     endYear = endYear === 'present' ? new Date().getFullYear() : endYear;
 
-    // Check if the end year is the current year
     const isCurrentYear = endYear === new Date().getFullYear();
 
-    // Calculate the difference in months
     let months = 0;
     if (isCurrentYear) {
       months = endMonth - startMonth;
@@ -95,10 +100,8 @@ const Experience = ({ title, question }) => {
       months = 12 - startMonth + endMonth + 12 * (endYear - startYear - 1);
     }
 
-    // Calculate the difference in years
     let years = endYear - startYear;
 
-    // Adjust the months if it exceeds 12
     if (months >= 12) {
       months %= 12;
     }
@@ -111,12 +114,13 @@ const Experience = ({ title, question }) => {
         : years > 0
         ? `${years} years`
         : `${months} months`;
-    // Return the difference in months and years
     return duration;
   };
 
   useEffect(() => {
-    isCurrentlyWorking();
+    if (checked) {
+      isCurrentlyWorking();
+    }
   }, [checked]);
 
   useEffect(() => {}, [
@@ -156,10 +160,10 @@ const Experience = ({ title, question }) => {
     jobTitle: jobTitle,
     description: description,
     duration: {
-      startMonth: startMonth.label,
-      startYear: startYear.label,
-      endMonth: endMonth.label,
-      endYear: endYear.label,
+      startMonth: startMonth,
+      startYear: startYear,
+      endMonth: endMonth,
+      endYear: endYear,
     },
     checked: checked,
     company: {
@@ -216,6 +220,7 @@ const Experience = ({ title, question }) => {
     setChecked(false);
     setIsCompanyModalOpen(false);
     setIsExperienceModalOpen(false);
+    clearExperienceDetails();
     toast.success('Experience deleted successfully');
   };
 
@@ -274,26 +279,26 @@ const Experience = ({ title, question }) => {
 
                     <div className="flex flex-wrap gap-[3px] text-sm items-center w-full break-words">
                       <div className="flex ">
-                        <p className="flex">
-                          <span>{experience.duration.startMonth}</span>
-                          <span>{experience.duration.startYear} </span>
+                        <p className="flex gap-[2px]">
+                          <span>{experience.duration.startMonth.label}</span>
+                          <span>{experience.duration.startYear.label} </span>
                           <span className="ml-1 inline-block">-</span>
                         </p>
                         <span className="ml-1">
-                          {experience.duration.endYear == 'present'
+                          {experience.duration.endYear.label == 'present'
                             ? 'Current'
-                            : experience.duration.endMonth +
-                              '' +
-                              experience.duration.endYear}
+                            : experience.duration.endMonth.label +
+                              ' ' +
+                              experience.duration.endYear.label}
                         </span>
                       </div>
                       <div className="h-1 w-1 rounded-full bg-gray-800 mx-[2px]"></div>
 
                       {calculateDifference(
-                        experience.duration.startMonth,
-                        experience.duration.startYear,
-                        experience.duration.endMonth,
-                        experience.duration.endYear
+                        experience.duration.startMonth.label,
+                        experience.duration.startYear.label,
+                        experience.duration.endMonth.label,
+                        experience.duration.endYear.label
                       )
                         .split(' ')
                         .map((item, index) => (
@@ -394,16 +399,15 @@ const Experience = ({ title, question }) => {
               <div>
                 {/* Is Currently Working checkbox*/}
                 <div className="mb-2">
-                  <li
-                    onClick={() => setChecked(!checked)}
-                    className="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white   hover:border-gray-400 ">
+                  <li className="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white hover:border-gray-400 ">
                     <input
-                      value={checked}
-                      onClick={() => setChecked(!checked)}
                       type="checkbox"
                       id="checkbox1"
-                      className="peer  relative h-4 w-4 shrink-0 cursor-pointer appearance-none rounded-[2px] border after:absolute after:left-0 after:top-0 after:h-full after:w-full after:bg-[url('data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9JzMwMHB4JyB3aWR0aD0nMzAwcHgnICBmaWxsPSIjZmZmZmZmIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgdmVyc2lvbj0iMS4xIiB4PSIwcHgiIHk9IjBweCI+PHRpdGxlPmljb25fYnlfUG9zaGx5YWtvdjEwPC90aXRsZT48ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz48ZyBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj48ZyBmaWxsPSIjZmZmZmZmIj48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgyNi4wMDAwMDAsIDI2LjAwMDAwMCkiPjxwYXRoIGQ9Ik0xNy45OTk5ODc4LDMyLjQgTDEwLjk5OTk4NzgsMjUuNCBDMTAuMjI2Nzg5MSwyNC42MjY4MDE0IDguOTczMTg2NDQsMjQuNjI2ODAxNCA4LjE5OTk4Nzc5LDI1LjQgTDguMTk5OTg3NzksMjUuNCBDNy40MjY3ODkxNCwyNi4xNzMxOTg2IDcuNDI2Nzg5MTQsMjcuNDI2ODAxNCA4LjE5OTk4Nzc5LDI4LjIgTDE2LjU4NTc3NDIsMzYuNTg1Nzg2NCBDMTcuMzY2ODIyOCwzNy4zNjY4MzUgMTguNjMzMTUyOCwzNy4zNjY4MzUgMTkuNDE0MjAxNCwzNi41ODU3ODY0IEw0MC41OTk5ODc4LDE1LjQgQzQxLjM3MzE4NjQsMTQuNjI2ODAxNCA0MS4zNzMxODY0LDEzLjM3MzE5ODYgNDAuNTk5OTg3OCwxMi42IEw0MC41OTk5ODc4LDEyLjYgQzM5LjgyNjc4OTEsMTEuODI2ODAxNCAzOC41NzMxODY0LDExLjgyNjgwMTQgMzcuNzk5OTg3OCwxMi42IEwxNy45OTk5ODc4LDMyLjQgWiI+PC9wYXRoPjwvZz48L2c+PC9nPjwvc3ZnPg==')] after:bg-[length:40px] after:bg-center after:bg-no-repeat after:content-[''] checked:bg-primary outline checked:outline-primary outline-gray-500 -outline-offset-[1px] checked:border-none"
+                      className="accent-primary  h-4 w-4  cursor-pointer"
+                      checked={checked}
+                      onChange={() => setChecked(!checked)}
                     />
+
                     <label
                       htmlFor="checkbox1"
                       className="w-full cursor-pointer font-medium text-gray-600 text-sm lg:text-base ">

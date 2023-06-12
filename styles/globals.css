@@ -38,3 +38,10 @@ em-emoji-picker {
   margin-left: 30px !important;
   overflow: hidden !important;
 }
+
+input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
