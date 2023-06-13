@@ -69,9 +69,11 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
   };
 
   return (
-    <div className="w-full  h-full   ">
+    <div className="w-full  h-full  font-graphik-regular ">
       <div className="flex justiify-between pt-8 pb-4 items-center w-full h-full ">
-        <h1 className="text-xl font-bold  w-full capitalize">{title}</h1>
+        <h1 className="text-xl font-graphik-semibold  w-full capitalize">
+          {title}
+        </h1>
         {finalSelected.length > 0 && (
           <Image
             onClick={() => setIsModalOpen(true)}
@@ -87,7 +89,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
             {finalSelected.map((item, index) => (
               <p
                 key={index * 88}
-                className=" w-fit uppercase text-black  bg-[#eee] px-4 font-bold py-[3px] text-[12px] leading-4 rounded-full">
+                className=" w-fit uppercase text-black  bg-[#eee] px-4 font-graphik-semibold py-[3px] text-[12px] leading-4 rounded-full">
                 {item.label}
               </p>
             ))}
@@ -101,7 +103,7 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
               alt="SearchLogo"
               className=" w-5 h-5 rounded-lg "
             />
-            <span className="font-medium leading-4 uppercase">
+            <span className="font-graphik-medium leading-4 uppercase">
               Add {title.slice(0, title.length - 1)}
             </span>
           </p>
@@ -111,11 +113,11 @@ const SkillsAndInterest = ({ title, label, dropDownOptions }) => {
       {isModalOpen && (
         <div className="h-screen w-screen overflow-x-hidden bg-black/30 fixed top-0 left-0 flex justify-center items-center">
           <div className="bg-white w-full m-2 xw:w-[512px] min-h-[250px]  rounded-lg py-6 px-8">
-            <h1 className="text-[1.6rem] font-bold pb-5">
+            <h1 className="text-[1.6rem] font-graphik-semibold pb-5">
               {finalSelected.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>
             <div className="lg:mb-7 mb-5 relative">
-              <label className="block text-sm font-medium text-gray-500">
+              <label className="block text-sm font-graphik-medium text-gray-500">
                 {label}
               </label>
 

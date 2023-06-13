@@ -88,7 +88,7 @@ const CompanyDetails = ({
             </div>
             {/* company logo */}
             <div className=" flex flex-col gap-1">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-graphik-medium text-gray-700">
                 Company Logo <span className="text-red-500 -ml-1">*</span>
               </label>
               <div className="flex border border-black rounded-lg">
@@ -108,7 +108,7 @@ const CompanyDetails = ({
             </div>
             {/* Company Name */}
             <div className=" flex flex-col gap-1">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-graphik-medium text-gray-700">
                 Company Name <span className="text-red-500 -ml-1">*</span>
               </label>
               <input
@@ -122,7 +122,7 @@ const CompanyDetails = ({
             </div>
             {/* Company Website */}
             <div className=" flex flex-col gap-1">
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-graphik-medium text-gray-700">
                 Company Website <span className="text-red-500 -ml-1">*</span>
               </label>
               <input
@@ -136,7 +136,7 @@ const CompanyDetails = ({
             </div>
             {/* Company Size */}
             <div>
-              <label className="text-sm font-medium text-gray-700">
+              <label className="text-sm font-graphik-medium text-gray-700">
                 Company Size <span className="text-red-500 -ml-1">*</span>
               </label>
               <DropDown

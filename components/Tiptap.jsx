@@ -3,6 +3,7 @@ import ListItem from '@tiptap/extension-list-item';
 import TextStyle from '@tiptap/extension-text-style';
 import Underline from '@tiptap/extension-underline';
 import Text from '@tiptap/extension-text';
+import HardBreak from '@tiptap/extension-hard-break';
 import { EditorContent, useEditor } from '@tiptap/react';
 import Document from '@tiptap/extension-document';
 import Dropcursor from '@tiptap/extension-dropcursor';
@@ -27,6 +28,14 @@ import {
   FaLink,
   FaImage,
 } from 'react-icons/fa';
+
+const CustomHardBreak = HardBreak.extend({
+  addKeyboardShortcuts() {
+    return {
+      Enter: () => this.editor.commands.setHardBreak(),
+    };
+  },
+});
 
 const MenuBar = ({ editor, showEmojiPicker, setShowEmojiPicker }) => {
   const setLink = useCallback(() => {
@@ -70,7 +79,7 @@ const MenuBar = ({ editor, showEmojiPicker, setShowEmojiPicker }) => {
   }
 
   return (
-    <div className="flex items-center justify-between p-[2px] mx-3 mt-3 rounded-lg bg-[#f4f4f4]">
+    <div className="flex items-center justify-between p-[2px] mx-3 mt-3 rounded-lg bg-[#f4f4f4] font-graphik-regular">
       <div className="flex  items-center gap-1 md:gap-2 lg:gap-3  mb-0 mx-1">
         <button
           onClick={() => editor.chain().focus().toggleBold().run()}
@@ -171,9 +180,9 @@ const Tiptap = ({ setDescription }) => {
       TextStyle.configure({ types: [ListItem.name] }),
       Link.configure({ types: [ListItem.name] }),
       Underline.configure({ types: [ListItem.name] }),
-
       Document,
       Paragraph,
+      CustomHardBreak,
       Text,
       Image,
       Dropcursor,

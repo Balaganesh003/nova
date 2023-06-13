@@ -21,9 +21,9 @@ const Feed = ({ openCreatePost }) => {
   useEffect(() => {}, [posts]);
 
   return (
-    <div>
+    <div className="font-graphik-regular">
       {/* Input Box */}
-      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white  md:rounded-lg">
+      <div className="w-[100%] h-full flex p-4 space-x-4 items-center bg-white  md:rounded-lg ">
         <div>
           <Image
             src={ProfilePhoto}
@@ -46,14 +46,14 @@ const Feed = ({ openCreatePost }) => {
           <div
             onClick={() => setSelectedCommunity('All Communities')}
             className={`flex-1 text-center cursor-pointer ${
-              selectedCommunity == 'All Communities' && 'font-bold'
+              selectedCommunity == 'All Communities' && 'font-graphik-semibold'
             }`}>
             All Communities
           </div>
           <div
             onClick={() => setSelectedCommunity('Your Communities')}
             className={`flex-1 text-center cursor-pointer ${
-              selectedCommunity == 'Your Communities' && 'font-bold'
+              selectedCommunity == 'Your Communities' && 'font-graphik-semibold'
             }`}>
             Your Communities
           </div>
@@ -68,7 +68,7 @@ const Feed = ({ openCreatePost }) => {
       {/* Sorting */}
       <div className="w-full flex justify-between px-4 lg:px-0 py-4 items-center">
         <div className="flex gap-3 items-center">
-          <div className="md:hidden px-4 py-[0.15rem] text-xs text-white rounded-full bg-primary uppercase font-medium  relative">
+          <div className="md:hidden px-4 py-[0.15rem] text-xs text-white rounded-full bg-primary uppercase font-graphik-medium  relative">
             <div
               className="flex items-center gap-2 cursor-pointer  "
               onClick={() => setCommunityDropDown(!communityDropDown)}>
@@ -99,8 +99,8 @@ const Feed = ({ openCreatePost }) => {
           </div>
 
           <div className="flex space-x-3 items-center ">
-            <p className="text-xs font-medium">Sort posts by</p>
-            <div className=" text-xs text-white rounded-full bg-primary relative font-medium uppercase  ">
+            <p className="text-xs font-graphik-medium">Sort posts by</p>
+            <div className=" text-xs text-white rounded-full bg-primary relative font-graphik-medium uppercase  ">
               <div
                 className="flex items-center gap-2 cursor-pointer px-4  py-[0.15rem]"
                 onClick={() => setSortDropDown(!sortDropDown)}>

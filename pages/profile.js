@@ -90,7 +90,7 @@ const Profile = () => {
             {/* Profile Details */}
             <div className="md:w-full max-w-[350px] px-4 pt-[6.5rem] md:px-8  ">
               <div className="flex justify-between gap-5 items-center">
-                <p className="flex text-2xl font-bold ">
+                <p className="flex text-2xl font-graphik-semibold ">
                   Innovative Chnagemaker
                 </p>
                 <p className="flex text-xl  text-gray-500">
@@ -106,13 +106,17 @@ const Profile = () => {
             <div className="w-full px-4 md:px-8 py-7 ">
               <div className="flex  gap-[16px] items-center">
                 <p className="flex items-center text-gray-500">
-                  <span className="font-medium text-black pr-1">1</span>post
+                  <span className="font-graphik-medium text-black pr-1">1</span>
+                  post
                 </p>
                 <p className="flex items-center text-gray-500">
-                  <span className="font-medium text-black pr-1">3</span>comments
+                  <span className="font-graphik-medium text-black pr-1">3</span>
+                  comments
                 </p>
                 <p className="flex items-center text-gray-500">
-                  <span className="font-medium text-black pr-1">12</span>
+                  <span className="font-graphik-medium text-black pr-1">
+                    12
+                  </span>
                   communities
                 </p>
               </div>
@@ -162,14 +166,14 @@ const Profile = () => {
                 <div
                   onClick={() => [setShowProfile(true), setShowActivity(false)]}
                   className={`flex-1 text-center px-9 cursor-pointer ${
-                    showProfile && 'font-bold'
+                    showProfile && 'font-graphik-semibold'
                   }`}>
                   Profile
                 </div>
                 <div
                   onClick={() => [setShowProfile(false), setShowActivity(true)]}
                   className={`flex-1 text-center px-4 cursor-pointer ${
-                    showActivity && 'font-bold'
+                    showActivity && 'font-graphik-semibold'
                   }`}>
                   Activity
                 </div>
@@ -211,12 +215,12 @@ const Profile = () => {
 
               {/* Communities */}
               <div className="pt-8">
-                <p className="text-2xl font-medium">Communities</p>
+                <p className="text-2xl font-graphik-medium">Communities</p>
                 <div className="mt-4 flex flex-wrap gap-2">
                   {communityList.map((community, i) => (
                     <p
                       key={i * 77}
-                      className="text-base leading-[1.65rem] hover:bg-[#f4f4f4] transition-all duration-300 cursor-pointer font-medium w-fit px-5 py-1 outline outline-[1px] outline-gray-300 rounded-full text-gray-500">
+                      className="text-base leading-[1.65rem] hover:bg-[#f4f4f4] transition-all duration-300 cursor-pointer font-graphik-medium w-fit px-5 py-1 outline outline-[1px] outline-gray-300 rounded-full text-gray-500">
                       {community}
                     </p>
                   ))}

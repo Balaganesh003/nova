@@ -28,9 +28,11 @@ const OffersAndAsk = ({
   };
 
   return (
-    <div className="w-full  h-full   ">
+    <div className="w-full  h-full   font-graphik-regular">
       <div className="flex justiify-between pt-8 pb-3 items-center w-full h-full ">
-        <h1 className="text-xl font-bold  w-full capitalize">{title}</h1>
+        <h1 className="text-xl font-graphik-semibold  w-full capitalize">
+          {title}
+        </h1>
         {finalContent.length > 0 && (
           <Image
             onClick={() => setIsModalOpen(true)}
@@ -44,7 +46,7 @@ const OffersAndAsk = ({
         {finalContent.length > 0 ? (
           <div className="text-gray-800   h-full whitespace-normal break-words">
             <p>
-              <span className="font-bold">{initialText} </span>
+              <span className="font-graphik-semibold">{initialText} </span>
               <span className="font-normal">{finalContent}</span>
             </p>
           </div>
@@ -71,11 +73,11 @@ const OffersAndAsk = ({
             className={`bg-white  w-full  xw:w-[512px]  rounded-lg py-7 px-8 ${
               title == 'About' ? 'h-[412px]' : 'lg:h-[300px] h-[280px]'
             } `}>
-            <h1 className="text-[1.6rem] font-bold pb-5 ">
+            <h1 className="text-[1.6rem] font-graphik-semibold pb-5 ">
               {finalContent.length > 0 ? `Edit ${title}` : `Add ${title}`}
             </h1>
             <div className="lg:mb-7 mb-5">
-              <label className="block text-sm font-medium text-gray-500">
+              <label className="block text-sm font-graphik-medium text-gray-500">
                 {label}
               </label>
               <textarea

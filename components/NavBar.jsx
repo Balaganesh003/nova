@@ -61,7 +61,7 @@ const NavBar = ({ setSidebarOpen, isProfilePage }) => {
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
 
   return (
-    <div className="bg-gradient-to-r z-[95] from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen ">
+    <div className="bg-gradient-to-r z-[95] from-accent via-accent-dark to-accent-dark fixed top-0 flex justify-center w-screen font-graphik-regular">
       <div
         className={`${
           isProfilePage && 'hidden md:flex'
@@ -152,7 +152,7 @@ const NavBar = ({ setSidebarOpen, isProfilePage }) => {
           </div>
         </Link>
         <div>
-          <p className="text-[16px] font-bold  text-[#212121]">
+          <p className="text-[16px] font-graphik-semibold  text-[#212121]">
             Innovative Changemaker
           </p>
         </div>

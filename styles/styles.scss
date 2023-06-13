@@ -17,6 +17,21 @@
     padding: 0 1.5rem;
   }
 
+  a {
+    color: #000;
+    text-decoration: underline;
+    font-weight: 600;
+    font-family: 'graphik-semibold';
+  }
+
+  li {
+    margin: 0.5em 0;
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+
   ul {
     list-style: disc;
   }
@@ -44,10 +59,33 @@ ol {
   list-style: decimal;
 }
 
+ul li {
+  margin-bottom: 0.5em;
+}
+
+ul li:last-child {
+  margin-bottom: 0;
+}
+
+ol li {
+  margin: 1em 0;
+}
+
+ol li:last-child {
+  margin-bottom: 0;
+}
+
 .ProseMirror p.is-editor-empty:first-child::before {
   color: #aaa;
   content: attr(data-placeholder);
   float: left;
   height: 0;
   pointer-events: none;
+}
+
+.post a {
+  color: #000;
+  text-decoration: underline;
+  font-weight: 600;
+  font-family: 'graphik-semibold';
 }

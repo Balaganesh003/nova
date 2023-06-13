@@ -17,8 +17,12 @@ module.exports = {
         xw: '570px',
         xl: '1200px',
       },
-      aspectRatio: {
-        '4/3': '4 / 3',
+      fontFamily: {
+        'graphik-light': ['graphik-light', 'sans-serif'],
+        'graphik-regular': ['graphik-regular', 'sans-serif'],
+        'graphik-medium': ['graphik-medium', 'sans-serif'],
+        'graphik-semibold': ['graphik-semibold', 'sans-serif'],
+        'graphik-bold': ['graphik-bold', 'sans-serif'],
       },
       boxShadow: {
         equal: '0 2px 8px rgba(0,0,0,.12)',

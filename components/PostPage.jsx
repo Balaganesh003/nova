@@ -15,8 +15,7 @@ const PostPage = ({ selectedPost }) => {
   const [isCommentBoxOpen, setIsCommentBoxOpen] = useState(false);
 
   return (
-    <div>
-      {/* Input Box */}
+    <div className="pb-[5rem]">
       <div className="w-[100%] h-full flex  space-x-4 items-center bg-white md:rounded-lg">
         <div className="w-full">
           {selectedPost && selectedPost != null && (
@@ -35,11 +34,11 @@ const PostPage = ({ selectedPost }) => {
                     />
                     <div className="flex flex-col">
                       <div className="flex gap-2">
-                        <p className="text-sm font-bold text-gray-900 hover:underline underline-gray-600">
+                        <p className="text-sm font-graphik-medium text-gray-900 hover:underline underline-gray-600">
                           {selectedPost?.author?.name}
                         </p>
                         <span className="text-sm text-gray-900">in</span>
-                        <p className="text-sm font-bold text-gray-900 hover:underline underline-gray-600">
+                        <p className="text-sm font-graphik-medium text-gray-900 hover:underline underline-gray-600">
                           {selectedPost?.community}
                         </p>
                       </div>
@@ -66,17 +65,17 @@ const PostPage = ({ selectedPost }) => {
                 </div>
                 {/*  */}
                 <div>
-                  <p className=" w-fit uppercase text-black my-5 bg-[#eee] px-4 font-bold py-[4px] text-[12px] leading-4 rounded-full">
+                  <p className=" w-fit uppercase text-black mt-7 mb-5 bg-[#eee] px-4 font-graphik-semibold py-[4px] text-[12px] leading-4 rounded-full">
                     General
                   </p>
                 </div>
                 {/* Heading */}
 
-                <h1 className="font-bold text-xl pb-2">
+                <h1 className="font-graphik-semibold text-lg pb-5">
                   {selectedPost?.title}
                 </h1>
                 {/* Description */}
-                <div className="w-full h-full mb-[1rem]  overflow-hidden">
+                <div className="w-full h-full mb-[1rem]  overflow-hidden font-graphik-regular text-base post">
                   {selectedPost.description && parser(selectedPost.description)}
                 </div>
                 <div className="w-full  py-5  md:rounded-b-lg z-[10]   flex justify-between items-center ">
@@ -109,7 +108,7 @@ const PostPage = ({ selectedPost }) => {
                       alt="CommentLogo"
                       className=""
                     />
-                    <span className="text-gray-500 font-medium text-[1.15rem]">
+                    <span className="text-gray-500 font-graphik-medium text-[1.15rem]">
                       {selectedPost?.comments?.length}
                     </span>
                   </div>

@@ -225,9 +225,11 @@ const Experience = ({ title, question }) => {
   };
 
   return (
-    <div className="w-full  h-full   ">
+    <div className="w-full  h-full font-graphik-regular  ">
       <div className="flex justiify-between pt-8 pb-3 items-center w-full h-full ">
-        <h1 className="text-xl font-bold  w-full capitalize">{title}</h1>
+        <h1 className="text-xl font-graphik-semibold  w-full capitalize">
+          {title}
+        </h1>
         {experienceList.length > 0 && (
           <Image
             onClick={() => setIsExperienceModalOpen(true)}
@@ -257,7 +259,7 @@ const Experience = ({ title, question }) => {
                   <div className="w-full">
                     <div className="w-full">
                       <div className=" flex justify-between w-full ">
-                        <h1 className="text-lg font-bold ">
+                        <h1 className="text-lg font-graphik-semibold ">
                           {experience.company.name}
                         </h1>
                         <div>
@@ -336,10 +338,12 @@ const Experience = ({ title, question }) => {
           <div className=" w-full  xw:w-[32rem] m-2  lg:w-[44.25rem] min-h-[33.75rem] bg-white shadow-black/10  rounded-xl shadow-xl z-[100] p-5 xw:p-8 relative">
             <div className="flex flex-col  space-y-[1.25rem]">
               {/* Title */}
-              <h1 className="text-[1.6rem] font-bold pb-5 ">Add Experience</h1>
+              <h1 className="text-[1.6rem] font-graphik-semibold pb-5 ">
+                Add Experience
+              </h1>
               {/* Job Title */}
               <div className=" flex flex-col gap-1">
-                <label className="text-sm font-medium text-gray-700">
+                <label className="text-sm font-graphik-medium text-gray-700">
                   Job Title<span className="text-red-500 ">*</span>
                 </label>
                 <input
@@ -356,7 +360,7 @@ const Experience = ({ title, question }) => {
               <div className=" flex flex-col gap-1 relative">
                 <label
                   htmlFor="title"
-                  className="text-sm font-medium text-gray-700">
+                  className="text-sm font-graphik-medium text-gray-700">
                   Company/Organization
                   <span className="text-red-500 ">*</span>
                 </label>
@@ -383,7 +387,7 @@ const Experience = ({ title, question }) => {
                   <div
                     onClick={() => setIsCompanyModalOpen(true)}
                     className=" absolute -bottom-[3.5rem] left-0 w-full cursor-pointer py-2 shadow-equal bg-white rounded-lg z-[100]">
-                    <p className="text-sm font-medium text-gray-700 flex items-center  px-2 py-[6px] bg-[#f4f4f4] ">
+                    <p className="text-sm font-graphik-medium text-gray-700 flex items-center  px-2 py-[6px] bg-[#f4f4f4] ">
                       <Image
                         src={CrossLogo}
                         alt="addCompany"
@@ -402,15 +406,15 @@ const Experience = ({ title, question }) => {
                   <li className="relative flex ml-0.5 items-center justify-center gap-2.5 bg-white hover:border-gray-400 ">
                     <input
                       type="checkbox"
-                      id="checkbox1"
-                      className="accent-primary  h-4 w-4  cursor-pointer"
+                      id="checkbox"
+                      className="w-4 h-4 border border-gray-400 rounded-sm focus:outline-none  accent-primary "
+                      onChange={(e) => setChecked(e.target.checked)}
                       checked={checked}
-                      onChange={() => setChecked(!checked)}
                     />
 
                     <label
-                      htmlFor="checkbox1"
-                      className="w-full cursor-pointer font-medium text-gray-600 text-sm lg:text-base ">
+                      htmlFor="checkbox"
+                      className="w-full cursor-pointer font-graphik-medium text-gray-600 text-sm lg:text-base ">
                       I currently work here
                     </label>
                   </li>
@@ -422,7 +426,7 @@ const Experience = ({ title, question }) => {
                     <div className={`flex-1 lg:mr-4 mr-2`}>
                       <label
                         htmlFor="title"
-                        className="text-sm font-medium text-gray-500">
+                        className="text-sm font-graphik-medium text-gray-500">
                         Start Date
                         <span className="text-red-500">*</span>
                       </label>
@@ -455,7 +459,7 @@ const Experience = ({ title, question }) => {
                         <>
                           <label
                             htmlFor="title"
-                            className="text-sm font-medium text-gray-500">
+                            className="text-sm font-graphik-medium text-gray-500">
                             End Date
                             <span className="text-red-500">*</span>
                           </label>
@@ -491,7 +495,7 @@ const Experience = ({ title, question }) => {
               <div className=" flex flex-col gap-1">
                 <label
                   htmlFor="title"
-                  className="text-sm font-medium text-gray-700">
+                  className="text-sm font-graphik-medium text-gray-700">
                   Description
                 </label>
                 <textarea

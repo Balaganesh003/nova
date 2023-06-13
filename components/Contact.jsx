@@ -49,10 +49,12 @@ const Contact = ({ title, question }) => {
   };
 
   return (
-    <div className="w-full  h-full  pb-5 ">
+    <div className="w-full  h-full  pb-5 font-graphik-regular">
       <Toaster />
       <div className="flex justiify-between pt-5 pb-3 items-center w-full h-full ">
-        <h1 className="text-xl font-bold  w-full capitalize">{title}</h1>
+        <h1 className="text-xl font-graphik-semibold  w-full capitalize">
+          {title}
+        </h1>
         {(finalLinks[0].length ||
           finalLinks[1].length ||
           finalLinks[2].length ||
@@ -137,7 +139,7 @@ const Contact = ({ title, question }) => {
         <>
           <div className="h-screen w-full overflow-x-hidden bg-black/20 fixed top-0 left-0 flex items-center justify-center ">
             <div className="bg-white w-full xw:w-[512px] lg:h-[358px] min-h-[320px]  rounded-lg py-6 px-8 mx-2">
-              <h1 className="text-[1.6rem] font-bold pb-8">
+              <h1 className="text-[1.6rem] font-graphik-semibold pb-8">
                 {finalLinks[0].length ||
                 finalLinks[1].length ||
                 finalLinks[2].length ||
@@ -148,7 +150,7 @@ const Contact = ({ title, question }) => {
               <div className="flex flex-col gap-3 lg:gap-5 lg:mb-7 mb-5">
                 <div className=" flex flex-col lg:flex-row gap-3 lg:gap-5">
                   <div className="w-full lg:w-[50%]">
-                    <label className="block text-sm font-medium text-gray-500">
+                    <label className="block text-sm font-graphik-medium text-gray-500">
                       Twitter
                     </label>
                     <input
@@ -160,7 +162,7 @@ const Contact = ({ title, question }) => {
                     />
                   </div>
                   <div className="w-full lg:w-[50%]">
-                    <label className="block text-sm font-medium text-gray-500">
+                    <label className="block text-sm font-graphik-medium text-gray-500">
                       Linkedin
                     </label>
                     <input
@@ -174,7 +176,7 @@ const Contact = ({ title, question }) => {
                 </div>
                 <div className=" flex flex-col lg:flex-row gap-3 lg:gap-5">
                   <div className="w-full lg:w-[50%]">
-                    <label className="block text-sm font-medium text-gray-500">
+                    <label className="block text-sm font-graphik-medium text-gray-500">
                       Instagram
                     </label>
                     <input
@@ -186,7 +188,7 @@ const Contact = ({ title, question }) => {
                     />
                   </div>
                   <div className="w-full lg:w-[50%]">
-                    <label className="block text-sm font-medium text-gray-500">
+                    <label className="block text-sm font-graphik-medium text-gray-500">
                       Portfolio / personal website
                     </label>
                     <input

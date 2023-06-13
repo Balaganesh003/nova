@@ -146,7 +146,7 @@ const SideBar = ({ sidebarOpen, setSidebarOpen }) => {
   };
 
   return (
-    <div>
+    <div className="font-graphik-regular">
       <div
         onClick={closeSideBar}
         className={`w-full opacity-30 z-[100] h-screen  ${

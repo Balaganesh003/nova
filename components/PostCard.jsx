@@ -33,7 +33,7 @@ const PostCard = ({ post }) => {
     <div className="relative">
       <div
         key={post.id}
-        className=" max-h-[445px] overflow-hidden relative md:rounded-lg  w-full cursor-pointer shadow-sm bg-white  ">
+        className=" max-h-[500px] overflow-hidden relative md:rounded-lg  w-full cursor-pointer shadow-sm bg-white  ">
         <div className={` p-8 `}>
           <div className="flex items-center justify-between  pb-4">
             <div className="flex items-center gap-4 ">
@@ -44,9 +44,9 @@ const PostCard = ({ post }) => {
                 alt="ProfilePhoto"
                 className="w-8 h-8 rounded-full"
               />
-              <div className="flex flex-col">
+              <div className="flex flex-col z-[50]">
                 <div className="flex gap-1">
-                  <p className="text-xs font-medium text-gray-600 hover:underline underline-gray-600">
+                  <p className="text-xs font-graphik-medium text-gray-600 hover:underline underline-gray-600">
                     {post?.author?.name}
                   </p>
                   <span className="text-xs text-gray-500">in</span>
@@ -74,9 +74,9 @@ const PostCard = ({ post }) => {
             </div>
           </div>
           {/* Heading */}
-          <h1 className="font-medium text-lg pb-2">{post?.title}</h1>
+          <h1 className="font-graphik-medium text-lg pb-2">{post?.title}</h1>
           {/* Description */}
-          <div className="w-full max-h-[250px] mb-[40px] pb-1 overflow-hidden">
+          <div className="w-full max-h-[220px] mb-[3.5rem] text-sm overflow-hidden  font-graphik-regular">
             {parser(post?.description)}
           </div>
         </div>
@@ -86,7 +86,7 @@ const PostCard = ({ post }) => {
           <Link
             href={`posts/${post.id}`}
             className="w-full h-full inline-block"></Link>
-          <div className="w-full h-14  pb-8 md:rounded-b-lg z-[90] absolute bottom-0 flex justify-between items-center px-8">
+          <div className="w-full h-14  pb-10 md:rounded-b-lg z-[90] absolute bottom-0 flex justify-between items-center px-8">
             <div className="flex gap-2">
               {post.reactions.map((reaction) => (
                 <div
@@ -122,7 +122,7 @@ const PostCard = ({ post }) => {
                 alt="CommentLogo"
                 className=""
               />
-              <span className="text-gray-500 font-medium text-[1.15rem]">
+              <span className="text-gray-500 font-graphik-medium text-[1.15rem]">
                 {post?.comments?.length}
               </span>
             </div>

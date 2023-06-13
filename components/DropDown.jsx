@@ -83,7 +83,7 @@ const DropDown = ({
   };
 
   return (
-    <div>
+    <div className="font-graphik-regular">
       <Select
         components={{
           IndicatorSeparator: () => null,
